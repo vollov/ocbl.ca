@@ -1,0 +1,127 @@
+body {
+	font-family: Arial, Helvetica, verdana, arial, sans-serif;
+	font-size: 16px;
+	border: 0 none;
+}
+
+footer {
+	font-size: 12px;
+}
+
+#map-canvas {
+	height: 400px;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar .navbar-nav > li a:hover, a.active {
+	border-bottom: 2px solid #ba5454;
+	/* background:#FFFFFF; */
+	color: #428bca;
+}
+
+.subtitle {
+	padding-top: 32px;
+	font-size: 18px;
+	font-weight: bold;
+	font-style:italic;
+	color: #4D4D4D;
+}
+
+.subtitle-blue{
+	padding-top: 0px;
+	font-size: 16px;
+	font-weight: bold;
+	font-style:italic;
+	color: #2EA8DB;
+}
+
+.jumbotron {
+	padding-top: 70px;
+	padding-bottom: 20px;
+}
+
+
+
+/* blog */
+.blog-title {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: normal;
+}
+.blog-description {
+  font-size: 20px;
+  color: #999;
+}
+
+
+/*
+ * Main column and sidebar layout
+ */
+
+.blog-main {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  padding: 15px;
+  margin: 0 -15px 15px;
+}
+.sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Pagination */
+.pager {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.pager > li > a {
+  width: 140px;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+/*
+ * Blog posts
+ */
+
+.blog-post {
+  margin-bottom: 60px;
+}
+.blog-post-title {
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+.blog-post-meta {
+  margin-bottom: 20px;
+  color: #999;
+}
+
+
+/*
+ * Footer
+ */
+
+.blog-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,53 @@
+{% extends 'site-layout.html' %}
+
+{% block title %} - {{ page_title }} {% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+      <div class="row">
+        <div class="col-md-4">
+          <h2>关于我们</h2>
+          <p>为了方便住在Kitchener南部的体育爱好者组织冬季的室内活动，我们建立了这个网站，以方便大家组织活动，建立微信群，交流体育技巧。活动场地在Doon Public School.有兴趣参加的朋友请在网上报名页面注册，我们的场地是包含了保险的，为了确认你是包括在保险范围内，请填写真实姓名和电话。我们会对你的个人信息保密。请参考活动时间按时到场活动。球场见！</p>
+        </div>
+        <div class="col-md-4">
+          <img class="featurette-image img-responsive" src="{% static "images/court1.jpg" %}" alt="court 1">
+       </div>
+        <div class="col-md-4">
+          <img class="featurette-image img-responsive" src="{% static "images/court2.jpg" %}" alt="court 2">
+        </div>
+      </div>
+
+      <!-- START THE FEATURETTES -->
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{% static "images/basketball.jpg" %}" alt="basketball">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">篮球报名办法</h2>
+          <p>联系人：Dustin </p>
+          <p>加入微信群： 请加 dustin_zhang_kw,我们会把你加进篮球群</p>
+          <p>网上注册： http://doonvalley.ca/member/register/ 場地最多能接收16個人，先後順序按網上註冊時間為準。</p>
+		  <p>報名與收費： 俱樂部是非盈利組織，我們的原則是費用會員平攤。因為每年參加的人數沒有辦法預計，所以一開始參加統一收$80, 每年活動結束我們會按照繳費情況多退少補。</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+	  <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{% static "images/badminton.jpg" %}" alt="badminton">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">羽毛球报名办法</h2>
+          <p>联系人：Dustin </p>
+          <p>加入微信群： 请加 dustin_zhang_kw,我们会把你加进羽毛球群</p>
+          <p>网上注册： http://doonvalley.ca/member/register/ 場地最多能接收16個人，先後順序按網上註冊時間為準。</p>
+		  <p>報名與收費： 俱樂部是非盈利組織，我們的原則是費用會員平攤。因為每年參加的人數沒有辦法預計，所以一開始參加統一收$80,每年活動結束我們會按照繳費情況多退少補。</p>
+        </div>
+      </div>
+      
+
+{% endblock %}
