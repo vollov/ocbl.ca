@@ -1,36 +1,15 @@
 from django import forms
 
-from django.contrib.auth.models import User
-from captcha.fields import CaptchaField
-from models import UserProfile
+from models import Player
+from team.models import Team
 
-class UserForm(forms.ModelForm):
-    password = forms.CharField(required=True, widget=forms.PasswordInput(
-                    attrs={'class':'form-control',
-                           'placeholder' :'Password',
-                    }))
-    captcha = CaptchaField()
-    
-    username = forms.CharField(required=True, widget=forms.TextInput(
-                    attrs={'class':'form-control',
-                           'placeholder' :'User Name',       
-                    }))
-    
-    email = forms.EmailField(required=True,widget=forms.TextInput(
-                    attrs={'class':'form-control',
-                           'placeholder' :'name@gmail.com',       
+class PlayerForm(forms.ModelForm):
+
+    team = forms.ModelChoiceField(required=True, queryset=Team.objects.all().order_by('name'), 
+                    widget=forms.TextInput(
+                        attrs={'class':'form-control',
                     }))
     
     class Meta:
-        model = User
-        fields = ('username', 'email', 'password')
-
-class UserProfileForm(forms.ModelForm):
-    phone = forms.CharField(required=True,widget=forms.TextInput(
-                    attrs={'class':'form-control',
-                           'placeholder' :'(416)-111-1234',
-                    }))
-        
-    class Meta:
-        model = UserProfile
-        fields = ('phone',)
+        model = Player
+        fields = ('team',)

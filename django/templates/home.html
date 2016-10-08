@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} - {{ page_title }} {% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+      <div class="row">
+        <div class="col-md-4">
+          <h2>å…³äºŽæˆ‘ä»¬</h2>
+          <p>ä¸ºäº†æ–¹ä¾¿ä½�åœ¨Kitchenerå�—éƒ¨çš„ä½“è‚²çˆ±å¥½è€…ç»„ç»‡å†¬å­£çš„å®¤å†…æ´»åŠ¨ï¼Œæˆ‘ä»¬å»ºç«‹äº†è¿™ä¸ªç½‘ç«™ï¼Œä»¥æ–¹ä¾¿å¤§å®¶ç»„ç»‡æ´»åŠ¨ï¼Œå»ºç«‹å¾®ä¿¡ç¾¤ï¼Œäº¤æµ�ä½“è‚²æŠ€å·§ã€‚æ´»åŠ¨åœºåœ°åœ¨Doon Public School.æœ‰å…´è¶£å�‚åŠ çš„æœ‹å�‹è¯·åœ¨ç½‘ä¸ŠæŠ¥å��é¡µé�¢æ³¨å†Œï¼Œæˆ‘ä»¬çš„åœºåœ°æ˜¯åŒ…å�«äº†ä¿�é™©çš„ï¼Œä¸ºäº†ç¡®è®¤ä½ æ˜¯åŒ…æ‹¬åœ¨ä¿�é™©èŒƒå›´å†…ï¼Œè¯·å¡«å†™çœŸå®žå§“å��å’Œç”µè¯�ã€‚æˆ‘ä»¬ä¼šå¯¹ä½ çš„ä¸ªäººä¿¡æ�¯ä¿�å¯†ã€‚è¯·å�‚è€ƒæ´»åŠ¨æ—¶é—´æŒ‰æ—¶åˆ°åœºæ´»åŠ¨ã€‚ç�ƒåœºè§�ï¼�</p>
+        </div>
+        <div class="col-md-4">
+          <img class="featurette-image img-responsive" src="{% static "images/court1.jpg" %}" alt="court 1">
+       </div>
+        <div class="col-md-4">
+          <img class="featurette-image img-responsive" src="{% static "images/court2.jpg" %}" alt="court 2">
+        </div>
+      </div>
+
+      <!-- START THE FEATURETTES -->
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{% static "images/basketball.jpg" %}" alt="basketball">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">ç¯®ç�ƒæŠ¥å��åŠžæ³•</h2>
+          <p>è�”ç³»äººï¼šDustin </p>
+          <p>åŠ å…¥å¾®ä¿¡ç¾¤ï¼š è¯·åŠ  dustin_zhang_kw,æˆ‘ä»¬ä¼šæŠŠä½ åŠ è¿›ç¯®ç�ƒç¾¤</p>
+          <p>ç½‘ä¸Šæ³¨å†Œï¼š http://doonvalley.ca/member/register/ å ´åœ°æœ€å¤šèƒ½æŽ¥æ”¶16å€‹äººï¼Œå…ˆå¾Œé †åº�æŒ‰ç¶²ä¸Šè¨»å†Šæ™‚é–“ç‚ºæº–ã€‚</p>
+		  <p>å ±å��èˆ‡æ”¶è²»ï¼š ä¿±æ¨‚éƒ¨æ˜¯é�žç›ˆåˆ©çµ„ç¹”ï¼Œæˆ‘å€‘çš„åŽŸå‰‡æ˜¯è²»ç”¨æœƒå“¡å¹³æ”¤ã€‚å› ç‚ºæ¯�å¹´å�ƒåŠ çš„äººæ•¸æ²’æœ‰è¾¦æ³•é �è¨ˆï¼Œæ‰€ä»¥ä¸€é–‹å§‹å�ƒåŠ çµ±ä¸€æ”¶$80, æ¯�å¹´æ´»å‹•çµ�æ�Ÿæˆ‘å€‘æœƒæŒ‰ç…§ç¹³è²»æƒ…æ³�å¤šé€€å°‘è£œã€‚</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+	  <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{% static "images/badminton.jpg" %}" alt="badminton">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">ç¾½æ¯›ç�ƒæŠ¥å��åŠžæ³•</h2>
+          <p>è�”ç³»äººï¼šDustin </p>
+          <p>åŠ å…¥å¾®ä¿¡ç¾¤ï¼š è¯·åŠ  dustin_zhang_kw,æˆ‘ä»¬ä¼šæŠŠä½ åŠ è¿›ç¾½æ¯›ç�ƒç¾¤</p>
+          <p>ç½‘ä¸Šæ³¨å†Œï¼š http://doonvalley.ca/member/register/ å ´åœ°æœ€å¤šèƒ½æŽ¥æ”¶16å€‹äººï¼Œå…ˆå¾Œé †åº�æŒ‰ç¶²ä¸Šè¨»å†Šæ™‚é–“ç‚ºæº–ã€‚</p>
+		  <p>å ±å��èˆ‡æ”¶è²»ï¼š ä¿±æ¨‚éƒ¨æ˜¯é�žç›ˆåˆ©çµ„ç¹”ï¼Œæˆ‘å€‘çš„åŽŸå‰‡æ˜¯è²»ç”¨æœƒå“¡å¹³æ”¤ã€‚å› ç‚ºæ¯�å¹´å�ƒåŠ çš„äººæ•¸æ²’æœ‰è¾¦æ³•é �è¨ˆï¼Œæ‰€ä»¥ä¸€é–‹å§‹å�ƒåŠ çµ±ä¸€æ”¶$80,æ¯�å¹´æ´»å‹•çµ�æ�Ÿæˆ‘å€‘æœƒæŒ‰ç…§ç¹³è²»æƒ…æ³�å¤šé€€å°‘è£œã€‚</p>
+        </div>
+      </div>
+      
+
+{% endblock %}

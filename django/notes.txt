@@ -1,0 +1,95 @@
+
+
+    # def players(request):
+#     """
+#     list all players [GET /team/:tid/players]
+#     """
+#     logger.debug('calling store.views.profile()')
+#     
+#     menu = MenuService.new_user_menu(request.user)
+#     context = {
+#         'menu':menu,
+#         'page_title': 'User profile',
+#         'user': request.user,
+#     }
+#     return render_to_response('profile.html', context)
+# 
+# 
+# from django.core.urlresolvers import reverse
+# from django.shortcuts import redirect
+# 
+# def login_form(request):
+#     """
+#     The request must be get
+#     """
+# 
+#     menu = MenuService.visitor_menu()
+#         
+#     requestContext = RequestContext(request, {'menu':menu,
+#                                                   'page_title': 'Login'} )
+#          
+#     return render_to_response('login.html', requestContext)
+
+
+
+        
+Django-registration module
+==================================
+settings.py
+
+    'registration',
+    
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_EMAIL_SUBJECT_PREFIX = '[Django Registration Test App]'
+SEND_ACTIVATION_EMAIL = False
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_URL = '/accounts/login/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+urls.py
+-----------------
+
+from registration.backends.simple.views import RegistrationView
+from team.forms import UserForm
+
+# Create a new class that redirects the user to the index page, if successful at logging
+class AppRegistrationView(RegistrationView):
+    def get_success_url(self, user):
+        return '/profile'
+    
+    
+    url(r'^accounts/register/$', AppRegistrationView.as_view(
+        form_class=UserForm
+        ), name='registration_register'),
+    url(r'^team/', include('team.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    
+team/forms.py
+--------------------------------
+from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
+from models import UserProfile
+
+from registration.forms import RegistrationFormTermsOfService, RegistrationFormUniqueEmail
+
+class UserForm(RegistrationFormUniqueEmail, RegistrationFormTermsOfService ):
+
+    first_name = forms.CharField(required=True, widget=forms.TextInput(
+                    attrs={'class':'form-control',
+                           'placeholder' :'First Name',       
+                    }))
+    
+    last_name = forms.CharField(required=True, widget=forms.TextInput(
+                    attrs={'class':'form-control',
+                           'placeholder' :'Last Name',       
+                    }))
+    
+    captcha = CaptchaField()
+    
+    class Meta:
+        model = User
+        fields = ('username', 'email')
+    

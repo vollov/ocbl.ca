@@ -5,22 +5,12 @@ from django.contrib.auth.models import User
 
 import uuid
 
-# Create your models here.
-class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-    phone = models.CharField(max_length=64, blank=True, null=True)
-    id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key",
-                 default=uuid.uuid4)
-
-    # Override the __unicode__() method to return out something meaningful!
-    def __unicode__(self):
-        return self.user.username
-
 class AbstractTeam(models.Model):
 	id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
 	name = models.CharField(max_length=32, blank=True, null=True)
 	city = models.CharField(max_length=32, blank=True, null=True)
-
+	
+	
 	def __unicode__(self):
 		return self.name
 
@@ -38,6 +28,28 @@ class Team(AbstractTeam):
 class TeamHistory(AbstractTeam):
 	team = models.ForeignKey(Team)
 	year = models.CharField(max_length=4, blank=False, null=False)
+	
+	class Meta:
+		ordering = ['-pk']
+
+class AbstractPlayer(models.Model):
+	id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
+	user = models.OneToOneField(User)
+	is_captain = models.BooleanField(default=False)
+	
+	
+class Player(AbstractPlayer):
+	active = models.BooleanField(default=False)
+	created = models.DateTimeField(auto_now_add=True, editable = True)
+	team = models.ForeignKey(Team, null=True)
+	
+	def save(self):
+		super(Player, self).save()
+	
+class PlayerHistory(AbstractTeam):
+	team = models.ForeignKey(Team)
+	year = models.CharField(max_length=4, blank=False, null=False)
+	team_history = models.ForeignKey(TeamHistory)
 	
 	class Meta:
 		ordering = ['-pk']

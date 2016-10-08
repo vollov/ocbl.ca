@@ -1,13 +1,11 @@
-{% extends 'site-layout.html' %}
+{% extends 'base.html' %}
 
 {% block title %} - {{ page_title }} {% endblock %}
-
-{% block menu %} {{ menu | safe }} {% endblock %}
 
 {% load staticfiles %}
 {% block content %}
 
-	<form class="form-signin" method="post" action="/account/profile/">
+	<form class="form-signin" method="post" action="/accounts/login/">
     	<h2 class="form-signin-heading">Please sign in</h2>
             {% csrf_token %}
             <label for="inputusername" class="sr-only">User Name</label>
@@ -21,7 +19,7 @@
             <br />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 			<br />
-			<a class="pull-right" href="/account/register">Register an account</a><br />
+			<a class="pull-right" href="/accounts/register">Register an account</a><br />
         </form>
 		
 {% endblock %}

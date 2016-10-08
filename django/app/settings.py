@@ -24,7 +24,7 @@ SECRET_KEY = '1yh7p13pn9&u8d5cc%-&ym*=i%r@=qhdpckil@92a88r-)y=at'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+CAPTCHA_TEST_MODE = True
 ALLOWED_HOSTS = []
 
 
@@ -32,12 +32,18 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'captcha',
+    'crispy_forms',
+    'accounts',
     'team',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -119,6 +125,54 @@ USE_TZ = True
 #RESOURCE_ROOT='/opt/www/sm/'
 RESOURCE_ROOT='e:/opt/var/www/ocbl/'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '[ %(levelname)s ] %(asctime)s - %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+        'accounts.logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(RESOURCE_ROOT,'logs/debug.log'),
+            'formatter': 'verbose',
+        },
+        'requests.logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(RESOURCE_ROOT,'logs/requests.log'),
+            'formatter': 'simple',
+        },
+    },
+    'loggers': {
+        'accounts': {
+            'handlers': ['accounts.logfile', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'app': {
+            'handlers': ['accounts.logfile', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['requests.logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
@@ -147,9 +201,9 @@ TEMPLATES = [
     },
 ]
 
-
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(RESOURCE_ROOT,'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+
