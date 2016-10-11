@@ -71,8 +71,12 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="/">首页</a></li>
 					<li><a href="/accounts/register">报名</a></li>
+					{% if user.is_authenticated %}
 					<li><a href="/accounts/logout">logout</a></li>
+					{% endif %}
+					{% if not user.is_authenticated %}
 					<li><a href="/accounts/login">login</a></li>
+					{% endif %}
 					<li><a href="/page/schedule">活动时间</a></li>
 					<li><a href="/page/basketball">篮球</a></li>
 				</ul>

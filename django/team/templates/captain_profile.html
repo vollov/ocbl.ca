@@ -1,14 +1,28 @@
-{% extends 'base.html' %}
-
-{% block title %} - {{ page_title }} {% endblock %}
+{% extends 'base.html' %} 
+{% block title %} - {{ page_title }} {% endblock %} 
 
 {% block content %}
-		<hr class="featurette-divider">
 
-<h3>Captain : {{user_profile.user.last_name}} {{user_profile.user.first_name}}</h3>
-<ul class="list-group">
-  <li class="list-group-item">age : {{user_profile.age}}</li>
-  <li class="list-group-item">phone : {{user_profile.phone}}</li>
-  <li class="list-group-item">team : {{captain.team.name}}</li>
-</ul>
+<div class="panel">
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="/team/{{captain.team.id}}/manage" class="btn btn-success navbar-btn"> Manage
+					Players </a> 
+				<a href="/team/captain/{{captain.id}}/edit"
+					class="btn btn-success navbar-btn"> Edit profile </a>
+				<p class="navbar-text">{{user_profile.user.last_name}} {{user_profile.user.first_name}} (Captain)</p>
+			</div>
+		</div>
+	</nav>
+
+		<ul class="list-group">
+			<li class="list-group-item">age : {{user_profile.age}}</li>
+			<li class="list-group-item">phone : {{user_profile.phone}}</li>
+			<li class="list-group-item">team : {{captain.team.name}}</li>
+		</ul>
+
+</div>
+
 {% endblock %}

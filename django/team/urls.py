@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^player/(?P<user_id>[^/]+)/enroll$', views.player_enroll, name='player_enroll'),
     url(r'^captain/(?P<user_id>[^/]+)/$', views.captain_profile, name='captain_profile'),
     
-#    url(r'^(?P<id>[^/]+)/$', views.team_view, name='team_view'),
+    url(r'^(?P<team_id>[^/]+)/manage$', views.team_manage, name='team_manage'),
 #    url(r'^profile/$', views.profile, name='profile'),
 #     url(r'^logout/$', views.user_logout, name='logout'),
 ]

@@ -4,7 +4,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 from team.forms import EnrollForm
-from team.models import Player
+from team.models import Player, Team
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import Http404
@@ -77,6 +77,26 @@ def captain_profile(request, user_id):
                    'user_profile': captain.user_profile}
     
     return render(request, 'captain_profile.html', context)
+
+@login_required
+def team_manage(request, team_id):
+    """captain profile - HTTP GET /team/@team_id/manage"""
+    user_id = request.session['user_id']
+    
+    players = Player.objects.filter(team__id=team_id).order_by('id')
+    team = Team.objects.get(id=team_id)
+    player_list = {}
+    i = 1
+    for p in players:
+        player_list[i] = p
+        i += 1
+        
+    context = {'page_title':'Team {0}'.format(team.name),
+               'user_id':user_id,
+                   'player_list':player_list}
+    
+    return render(request, 'team_manage.html', context)
+
 
 class ProfileService:
     """
