@@ -54,6 +54,9 @@
     
 </head>
 <body>
+	{% load i18n %}
+	{% trans "Home" as t_home %}
+	{% get_current_language as LANGUAGE_CODE %}
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -69,7 +72,7 @@
 			<div id="navbar" class="navbar-collapse collapse">
 
 				<ul class="nav navbar-nav navbar-left">
-					<li><a href="/">首页</a></li>
+					<li><a href="/">{{t_home}} {{LANGUAGE_CODE}}</a></li>
 					<li><a href="/accounts/register">报名</a></li>
 					{% if user.is_authenticated %}
 					<li><a href="/accounts/logout">logout</a></li>

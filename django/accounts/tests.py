@@ -61,4 +61,16 @@ class TestUserprofileForm(TestCase):
                 profile = profile_form.save(commit=False)
                 profile.user = user
                 profile.save()
-        
+
+###############################################
+## test registration form
+###############################################
+class TestRegistrationForm(TestCase):
+    
+    def test_password_no_match(self):
+        pass
+    
+    def test_username_duplicate(self):
+        pass
+    
+    

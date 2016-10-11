@@ -15,7 +15,6 @@ class UserForm(forms.ModelForm):
                            'placeholder' :'Password confirm',
                     }))
     
-
     first_name = forms.CharField(required=True, widget=forms.TextInput(
                     attrs={'class':'form-control',
                            'placeholder' :'First Name',       

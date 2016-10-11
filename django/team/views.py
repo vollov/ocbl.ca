@@ -1,18 +1,25 @@
-from django.contrib.auth.decorators import login_required
 from __builtin__ import False
 import logging
-logger = logging.getLogger(__name__)
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import Http404
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render
+
+from accounts.models import UserProfile
 from team.forms import EnrollForm
 from team.models import Player, Team
-from django.contrib.auth.models import User
-from django.shortcuts import render
-from django.http import Http404
-from accounts.models import UserProfile
+
+
+logger = logging.getLogger(__name__)
+
 
 @login_required
 def player_enroll(request, user_id):
-    """HTTP GET to show player enroll form"""
+    """HTTP GET to show player enroll form
+    Role = [player]
+    """
     user = User.objects.get(id = user_id)
     enroll_form = EnrollForm()
          
@@ -25,7 +32,9 @@ def player_enroll(request, user_id):
 
 @login_required    
 def post_enroll(request):
-    """Process HTTP POST for player enroll"""
+    """Process HTTP POST for player enroll
+    Role = [player]
+    """
     user_id = request.session['user_id']
     user_profile = UserProfile.objects.get(user__id = user_id)
     
@@ -54,11 +63,24 @@ def post_enroll(request):
         print enroll_form.errors
         raise Http404("your enrollment failed.")
         
+@login_required
+def player_approve(request, player_id):
+    """captain approve a player to join a team, by setting the player to active. 
+    - HTTP GET /team/player/@player_id/approve
+    - Role = [captain]
+    """
 
+    player = Player.objects.get(id = player_id)
+    player.active = True
+    player.save()
+    
+    return HttpResponseRedirect('/team/{0}/manage'.format(player.team.id))
     
 @login_required
 def player_profile(request, user_id):
-    """player profile - HTTP GET /team/player/@id"""
+    """player profile - HTTP GET /team/player/@id
+    Role = [player]
+    """
 
     player = Player.objects.get(user_profile__user__id = user_id)
     context = {'page_title':'player profile', 
@@ -69,7 +91,9 @@ def player_profile(request, user_id):
 
 @login_required
 def captain_profile(request, user_id):
-    """captain profile - HTTP GET /team/captain/@id"""
+    """captain profile - HTTP GET /team/captain/@id
+    Role = [captain]
+    """
 
     captain = Player.objects.get(user_profile__user__id=user_id)
     context = {'page_title':'player profile', 
@@ -80,7 +104,9 @@ def captain_profile(request, user_id):
 
 @login_required
 def team_manage(request, team_id):
-    """captain profile - HTTP GET /team/@team_id/manage"""
+    """captain profile - HTTP GET /team/@team_id/manage
+    Role = [captain]
+    """
     user_id = request.session['user_id']
     
     players = Player.objects.filter(team__id=team_id).order_by('id')
@@ -100,7 +126,8 @@ def team_manage(request, team_id):
 
 class ProfileService:
     """
-    Service class to manage player status 
+    Service class to manage player status
+    Role = [all] 
     """
     def __init__(self, user_id):
         self.user_id = user_id
@@ -138,8 +165,4 @@ class ProfileService:
             return True
         else:
             return False
-        
-            
-    
-            
 
