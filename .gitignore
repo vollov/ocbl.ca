@@ -2,8 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.pydevproject
-settings.py
+django/.pydevproject
+django/app/settings.py
 # C extensions
 *.so
 
