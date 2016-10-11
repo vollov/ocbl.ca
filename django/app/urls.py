@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^profile/', views.profile, name='profile'),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^team/', include('team.urls')),
     url(r'^captcha/', include('captcha.urls')),
 ]

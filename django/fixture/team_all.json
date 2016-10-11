@@ -1,0 +1,42 @@
+[
+{
+    "model": "team.team",
+    "pk": "51d1bad3-a4f6-4a29-a5a2-62d96491c60f",
+    "fields": {
+        "name": "Oakville",
+        "city": "Oakville",
+        "active": true,
+        "created": "2016-10-08T15:20:30Z"
+    }
+},
+{
+    "model": "team.team",
+    "pk": "a3256bc3-af94-4b7d-b547-3ac4630cd8b7",
+    "fields": {
+        "name": "Kitchener",
+        "city": "Kitchener",
+        "active": true,
+        "created": "2016-10-08T15:20:12Z"
+    }
+},
+{
+    "model": "team.player",
+    "pk": "ab16d571-dd94-40cb-aa96-3891df1a2ac5",
+    "fields": {
+        "user_profile": "4fe008c8-6c66-41e9-8f0b-a1308b958e1d",
+        "active": true,
+        "created": "2016-10-11T01:23:24Z",
+        "team": "a3256bc3-af94-4b7d-b547-3ac4630cd8b7"
+    }
+},
+{
+    "model": "team.player",
+    "pk": "eaab9c83-d7fb-4a0c-8705-01cc30c0b675",
+    "fields": {
+        "user_profile": "d04b73f5-4c0a-441c-a631-6ae3c8433cde",
+        "active": false,
+        "created": "2016-10-11T01:24:14Z",
+        "team": "a3256bc3-af94-4b7d-b547-3ac4630cd8b7"
+    }
+}
+]

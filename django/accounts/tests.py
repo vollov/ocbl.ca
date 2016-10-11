@@ -24,7 +24,6 @@ class TestUserForm(TestCase):
             user.set_password(user.password)
             user.save()
 
-
 ###############################################
 ## test user profile forms 
 ###############################################

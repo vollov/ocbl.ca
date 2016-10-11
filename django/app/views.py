@@ -1,10 +1,12 @@
 import logging
-from django.shortcuts import render
-from datetime import datetime
-from django.contrib.auth.decorators import login_required
 
-from django.core import serializers
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render
+
+from team.models import Player
+from team.views import ProfileService
+
 
 logger = logging.getLogger(__name__)
 
@@ -23,10 +25,5 @@ def profile(request):
     """
     logger.debug('calling team.views.profile()')
     user_id = request.session['user_id']
-    
-    user = User.objects.get(id = user_id)
-    context = {
-        'page_title': 'User profile',
-        'user': user,
-    }
-    return render(request,'profile.html', context)
+    service = ProfileService(user_id)
+    return HttpResponseRedirect(service.getProfile())

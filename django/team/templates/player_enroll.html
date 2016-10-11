@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} - {{ page_title }} {% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+		<hr class="featurette-divider">
+
+<ul class="list-group">
+  <li class="list-group-item">User : {{user.username}}</li>
+</ul>
+
+		<h1>Enroll a team</h1>
+		<form id="enroll_form" method="post" action="/team/enroll/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <!-- Display each form. The as_p method wraps each element in a paragraph
+                 (<p>) element. This ensures each element appears on a new line,
+                 making everything look neater. -->
+            {{ enroll_form.as_p }}
+			
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Save" />
+        </form>
+        
+{% endblock %}

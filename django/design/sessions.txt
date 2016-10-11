@@ -1,0 +1,4 @@
+        sessions:
+        fav_color = request.session['fav_color']
+        request.session['has_commented'] = True
+        del request.session['member_id']

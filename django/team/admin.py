@@ -64,3 +64,13 @@ class TeamHistoryAdmin(admin.ModelAdmin):
 admin.site.register(Team, TeamAdmin)
 admin.site.register(TeamHistory, TeamHistoryAdmin)
 
+from team.models import Player
+class PlayerAdmin(admin.ModelAdmin):
+    model = Player
+    
+#     def is_captain(self, obj):
+#         return obj.user_profile.user.groups.filter(name='captain').exists()
+    
+    list_display = ['user_profile','team','active']
+
+admin.site.register(Player, PlayerAdmin)

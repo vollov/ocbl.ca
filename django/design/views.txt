@@ -1,0 +1,12 @@
+
+player profile [/team/player/P<id>]
+ -- transfer
+ -- edit profile [/team/player/P<id>/edit]
+ 
+captain profile [/team/captain/P<id>]
+ -- edit team player
+ -- list all players in team [/team/P<id>]
+ -- edit profile [/team/captain/P<id>/edit]
+ 
+ enroll team
+ -- enroll team [/team/player/P<user_id>/enroll]
