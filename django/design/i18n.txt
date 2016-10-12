@@ -10,3 +10,7 @@ LOCALE_PATH = os.path.join(BASE_DIR,'locale')
 LOCALE_PATHS = [
     LOCALE_PATH,
 ]
+
+apt-get install fcitx-googlepinyin
+im-config
+Google-Pinyin. Press OK. 
