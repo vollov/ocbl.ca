@@ -26,13 +26,13 @@ def register(request):
             profile.save()
             
             # save user in session
-            
+            login(request, user)
             request.session['user_id'] = user.id
-            return render(request, 'profile.html', {})
+            return HttpResponseRedirect(reverse('profile'))
 
         else:
             print user_form.errors
-            raise Http404("Your registration is failed.")
+#             raise Http404("Your registration is failed.")
         
     else:
         user_form = UserForm()

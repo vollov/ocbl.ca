@@ -40,11 +40,15 @@ class UserForm(forms.ModelForm):
         fields = ('first_name','last_name','username', 'email', 'password')
 
     def clean_password_confirm(self):
-        password1 = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password_confirm')
+        #cleaned_data = super(UserForm, self).clean()
+        # data = self.cleaned_data['recipients']
+        password1 = self.cleaned_data.get('password','')
+        password2 = self.cleaned_data.get('password_confirm','')
     
-        if password1 and password1 != password2:
-            raise forms.ValidationError("Passwords don't match")
+        if password1 != password2:
+            #msg = "password not match"
+            #self.add_error('password_confirm', msg)
+            raise forms.ValidationError("Passwords dont match")
     
         return password2
     

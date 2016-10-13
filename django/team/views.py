@@ -20,6 +20,7 @@ def player_enroll(request, user_id):
     """HTTP GET to show player enroll form
     Role = [player]
     """
+    logger.debug('calling player enroll with user_id={0}'.format(user_id))
     user = User.objects.get(id = user_id)
     enroll_form = EnrollForm()
          
@@ -144,7 +145,7 @@ class ProfileService:
                 return '/team/player/{0}'.format(self.user_id)
                 #return player_profile(request)
         else:
-            
+            logger.debug('ProfileService=> /team/player/{0}/enroll'.format(self.user_id))
             return '/team/player/{0}/enroll'.format(self.user_id)
             #return player_enroll(request)
         
