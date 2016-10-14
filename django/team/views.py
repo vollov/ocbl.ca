@@ -169,9 +169,11 @@ class TeamHelper:
             first_name = unicode(user.first_name)
             last_name = unicode(user.last_name)
             if player.is_captain():
-                p['name'] = '{0} {1} ({2})'.format(first_name, last_name, _('captain'))
+                p['name'] = u''.join((last_name,first_name,'(',_('captain'),')')).encode('utf-8').strip()
+                #'{0} {1} ({2})'.format(first_name, last_name, _('captain'))
             else:
-                p['name'] = '{0} {1}'.format(first_name, last_name)
+                p['name'] = u''.join((last_name,first_name )).encode('utf-8').strip()
+                #'{0} {1}'.format(first_name, last_name)
         
             p['age'] = player.user_profile.age()
             

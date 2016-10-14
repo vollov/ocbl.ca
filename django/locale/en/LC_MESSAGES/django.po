@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 17:31-0400\n"
+"POT-Creation-Date: 2016-10-14 23:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,108 +17,108 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\accounts\forms.py:11
+#: accounts/forms.py:11
 msgid "Password"
 msgstr "Password"
 
-#: .\accounts\forms.py:16
+#: accounts/forms.py:16
 msgid "Password confirm"
 msgstr "Password confirm"
 
-#: .\accounts\forms.py:21
+#: accounts/forms.py:21
 msgid "First Name"
 msgstr "First Name"
 
-#: .\accounts\forms.py:26
+#: accounts/forms.py:26
 msgid "Last Name"
 msgstr "Last Name"
 
-#: .\accounts\forms.py:31
+#: accounts/forms.py:31
 msgid "User Name"
 msgstr "User Name"
 
-#: .\accounts\forms.py:36
+#: accounts/forms.py:36
 msgid "name@gmail.com"
 msgstr "name@gmail.com"
 
-#: .\accounts\forms.py:69
+#: accounts/forms.py:69
 msgid "your hight in cms. e.g. 180"
 msgstr "your hight in cms. e.g. 180"
 
-#: .\accounts\templates\register.html:5 .\templates\base.html:52
+#: accounts/templates/register.html:5 templates/base.html:52
 msgid "registration"
 msgstr "Registration"
 
-#: .\accounts\templates\register.html:17
+#: accounts/templates/register.html:17
 msgid "submit"
 msgstr "Submit"
 
-#: .\app\views.py:17 .\templates\base.html:34
+#: app/views.py:17 templates/base.html:34
 msgid "Home"
 msgstr "Home"
 
-#: .\app\views.py:23 .\templates\base.html:61 .\templates\contacts.html:8
+#: app/views.py:23 templates/base.html:61 templates/contacts.html:8
 msgid "contacts"
 msgstr "Contact Us"
 
-#: .\game\templates\games.html:14
+#: game/templates/games.html:14
 msgid "past_games"
 msgstr "Past Games"
 
-#: .\game\templates\games.html:32 .\team\templates\teams.html:13
-#: .\team\views.py:39 .\templates\base.html:59
+#: game/templates/games.html:32 team/templates/teams.html:13 team/views.py:39
+#: templates/base.html:59
 msgid "teams"
 msgstr "Teams"
 
-#: .\game\templates\games.html:33
+#: game/templates/games.html:33
 msgid "start_time"
 msgstr "Start Time"
 
-#: .\game\templates\games.html:34
+#: game/templates/games.html:34
 msgid "address"
 msgstr "Address"
 
-#: .\game\templates\games.html:35
+#: game/templates/games.html:35
 msgid "status"
 msgstr "Status"
 
-#: .\game\views.py:28
+#: game/views.py:28
 msgid "future_game"
 msgstr "Future Game"
 
-#: .\game\views.py:34 .\templates\base.html:60
+#: game/views.py:34 templates/base.html:60
 msgid "games"
 msgstr "Games"
 
-#: .\team\templates\teams.html:31
+#: team/templates/teams.html:31
 msgid "name"
 msgstr "Full Name"
 
-#: .\team\templates\teams.html:32
+#: team/templates/teams.html:32
 msgid "age"
 msgstr "Age"
 
-#: .\team\templates\teams.html:33
+#: team/templates/teams.html:33
 msgid "height"
 msgstr "Heigh(cm)"
 
-#: .\team\templates\teams.html:34
+#: team/templates/teams.html:34
 msgid "number"
 msgstr "Number"
 
-#: .\team\views.py:170
+#: team/views.py:172
 msgid "captain"
 msgstr "captain"
 
-#: .\templates\base.html:54
+#: templates/base.html:54
 msgid "logout"
 msgstr "Logout"
 
-#: .\templates\base.html:57
+#: templates/base.html:57
 msgid "login"
 msgstr "Login"
 
-#: .\templates\contacts.html:9
+#: templates/contacts.html:9
 msgid "please_contact_dustin via"
 msgstr "contacts email:"
 
