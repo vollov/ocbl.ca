@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} - {{ page_title }} {% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+{% load i18n %}
+  <h3>{% trans "contacts" %}</h3>
+	<p>{% trans "please_contact_dustin via" %} {{contact_email}}</p>
+{% endblock %}

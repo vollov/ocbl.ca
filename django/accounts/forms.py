@@ -3,36 +3,37 @@ from django import forms
 from django.contrib.auth.models import User
 from captcha.fields import CaptchaField
 from models import UserProfile
+from django.utils.translation import ugettext as _
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(required=True, widget=forms.PasswordInput(
                     attrs={'class':'form-control',
-                           'placeholder' :'Password',
+                           'placeholder' :_('Password'),
                     }))
     
     password_confirm = forms.CharField(required=True, widget=forms.PasswordInput(
                     attrs={'class':'form-control',
-                           'placeholder' :'Password confirm',
+                           'placeholder' :_('Password confirm'),
                     }))
     
     first_name = forms.CharField(required=True, widget=forms.TextInput(
                     attrs={'class':'form-control',
-                           'placeholder' :'First Name',       
+                           'placeholder' :_('First Name'),
                     }))
 
     last_name = forms.CharField(required=True, widget=forms.TextInput(
                     attrs={'class':'form-control',
-                           'placeholder' :'Last Name',       
+                           'placeholder' :_('Last Name'),       
                     }))
     
     username = forms.CharField(required=True, widget=forms.TextInput(
                     attrs={'class':'form-control',
-                           'placeholder' :'User Name',       
+                           'placeholder' :_('User Name'),       
                     }))
     
     email = forms.EmailField(required=True,widget=forms.TextInput(
                     attrs={'class':'form-control',
-                           'placeholder' :'name@gmail.com',       
+                           'placeholder' :_('name@gmail.com'),       
                     }))
     
     class Meta:
@@ -63,8 +64,13 @@ class UserProfileForm(forms.ModelForm):
                            'placeholder' :'1978-10-25',
                     }))
     
+    height = forms.IntegerField(required=True,widget=forms.TextInput(
+                    attrs={'class':'form-control',
+                           'placeholder' :_('your hight in cms. e.g. 180'),
+                    }))
+    
     captcha = CaptchaField()
     
     class Meta:
         model = UserProfile
-        fields = ('phone','birthday')
+        fields = ('phone','birthday', 'height')

@@ -11,13 +11,20 @@ import logging
 logger = logging.getLogger(__name__)
 
 def home(request):
-    logger.debug('calling app.views.home()')
 
     # Translators: This message appears on the home page only
     context = {
         'page_title': _('Home'),
     }
     return render(request,'home.html', context)
+
+def contacts(request):
+    context = {
+        'page_title': _('contacts'),
+        'contact_email': 'dike.zhang@gmail.com',
+    }
+    return render(request,'contacts.html', context)
+
 
 @login_required
 def profile(request):

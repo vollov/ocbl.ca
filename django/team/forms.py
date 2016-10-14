@@ -9,3 +9,13 @@ class EnrollForm(forms.ModelForm):
     class Meta:
         model = Player
         fields = ('team',)
+
+class PlayerForm(forms.ModelForm):
+        
+    number = forms.IntegerField(required=True,widget=forms.TextInput(
+                    attrs={'class':'form-control',
+                           'placeholder' :'number of the player. e.g. 18',
+                    }))
+    class Meta:
+        model = Player
+        fields = ('number',)

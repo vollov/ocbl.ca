@@ -47,6 +47,7 @@ class Player(AbstractPlayer):
 	active = models.BooleanField(default=False)
 	created = models.DateTimeField(auto_now_add=True, editable = True)
 	team = models.ForeignKey(Team, null=True)
+	number = models.IntegerField(default=0, blank=False, null=False)
 	
 	def is_captain(self):
 		return self.user_profile.user.groups.filter(name='captain').exists()

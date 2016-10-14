@@ -12,6 +12,8 @@ class UserProfile(models.Model):
     id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key",
                  default=uuid.uuid4)
 
+    height = models.IntegerField(default=0, blank=False, null=False)
+    
     # Override the __unicode__() method to return out something meaningful!
     def __unicode__(self):
         return self.user.username

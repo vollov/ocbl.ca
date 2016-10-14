@@ -20,9 +20,16 @@ import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    
+    # base page
     url(r'^$', views.home, name='home'),
     url(r'^profile/', views.profile, name='profile'),
+    
+    url(r'^contacts/', views.contacts, name='contacts'),
+    
+    # modules urls
     url(r'^accounts/', include('accounts.urls')),
     url(r'^team/', include('team.urls')),
+    url(r'^game/', include('game.urls')),
     url(r'^captcha/', include('captcha.urls')),
 ]

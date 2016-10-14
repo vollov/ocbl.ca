@@ -1,6 +1,6 @@
 from __builtin__ import False
 import logging
-
+from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404
@@ -11,8 +11,37 @@ from accounts.models import UserProfile
 from team.forms import EnrollForm
 from team.models import Player, Team
 
-
 logger = logging.getLogger(__name__)
+
+def team_detail(request, team_id):
+    """Show players and captains by team id, show game results
+     - HTTP GET /team/@team_id"""
+    teams = Team.objects.filter(active=True).order_by('name','id')
+    current_team = Team.objects.get(id=team_id)
+    teamHelper = TeamHelper()
+    context = {
+        'page_title': current_team,
+        'teams':teams,
+        'current_team':current_team,
+        'players_dict':teamHelper.get_players_by_team(current_team)
+    }
+    return render(request,'teams.html', context)
+
+def teams(request):
+    """list all teams"""
+    
+    teams = Team.objects.filter(active=True).order_by('name','id')
+    
+    current_team = teams[0]
+    teamHelper = TeamHelper()
+    
+    context = {
+        'page_title': _('teams'),
+        'teams':teams,
+        'current_team':current_team,
+        'players_dict':teamHelper.get_players_by_team(current_team)
+    }
+    return render(request,'teams.html', context)
 
 
 @login_required
@@ -124,6 +153,38 @@ def team_manage(request, team_id):
     
     return render(request, 'team_manage.html', context)
 
+class TeamHelper:
+    
+    def __init__(self):
+        pass
+    
+    def get_players_by_team(self, current_team):
+        players = Player.objects.filter(team=current_team, active=True).order_by('id')
+    
+        players_dict = {}
+        i = 1
+        for player in players:
+            p = {}
+            user = player.user_profile.user
+            first_name = unicode(user.first_name)
+            last_name = unicode(user.last_name)
+            if player.is_captain():
+                p['name'] = '{0} {1} ({2})'.format(first_name, last_name, _('captain'))
+            else:
+                p['name'] = '{0} {1}'.format(first_name, last_name)
+        
+            p['age'] = player.user_profile.age()
+            
+            
+            p['height'] = '{0}cm'.format(player.user_profile.height)
+            if not player.number:
+                p['number'] = 'n/a'
+            else:
+                p['number'] = player.number
+                
+            players_dict[i] = p
+            i+=1
+        return players_dict
 
 class ProfileService:
     """

@@ -71,6 +71,6 @@ class PlayerAdmin(admin.ModelAdmin):
 #     def is_captain(self, obj):
 #         return obj.user_profile.user.groups.filter(name='captain').exists()
     
-    list_display = ['user_profile','team','active']
+    list_display = ['user_profile','team','active', 'number']
 
 admin.site.register(Player, PlayerAdmin)

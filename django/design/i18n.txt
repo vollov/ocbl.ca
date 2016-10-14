@@ -14,3 +14,8 @@ LOCALE_PATHS = [
 apt-get install fcitx-googlepinyin
 im-config
 Google-Pinyin. Press OK. 
+
+db
+=================
+SELECT default_character_set_name FROM information_schema.SCHEMATA 
+WHERE schema_name = "ocbl";
