@@ -119,8 +119,6 @@ msgid "login"
 msgstr "登录"
 
 #: templates/contacts.html:9
-#, fuzzy
-#| msgid "please_contact_dustin via {{contact_email}}"
 msgid "please_contact_dustin via"
 msgstr "联系人   张砥可 电邮"
 
