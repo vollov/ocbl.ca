@@ -1,0 +1,12 @@
+Create the environment with virtualenv --system-site-packages . Then, 
+activate the virtualenv and when you install things use pip install --ignore-installed or pip install -I . 
+That way pip will install what you've requested locally even though a system-wide version exists. 
+
+Django==1.10
+MySQL-python==1.2.5
+Pillow==3.4.1
+argparse==1.2.1
+django-crispy-forms==1.6.0
+django-simple-captcha==0.5.3
+six==1.10.0
+wsgiref==0.1.2
