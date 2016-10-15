@@ -27,3 +27,8 @@ def edit_profile(request):
     requestContext = RequestContext(request, {'menu':menu,
                                               'page_title': 'Edit Profile',
                                               'profile_form': profile_form} )
+                                              
+                                              
+==============
+test deployment
+/opt/pyenvs/django18/bin/gunicorn --workers=2 app.wsgi -b :3008

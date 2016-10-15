@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,Http404
 from accounts.forms import UserProfileForm, UserForm
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 
 import logging
 logger = logging.getLogger(__name__)
