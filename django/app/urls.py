@@ -33,3 +33,17 @@ urlpatterns = [
     url(r'^game/', include('game.urls')),
     url(r'^captcha/', include('captcha.urls')),
 ]
+
+
+# settings for development environment DEBUG
+from django.conf.urls.static import static
+from django.conf import settings
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+ 
+# if settings.DEBUG:
+#     urlpatterns += [
+#         url((r'^media/(?P<path>.*)','django.views.static', {'document_root': settings.MEDIA_ROOT}),'serve')
+#     ]
+    
