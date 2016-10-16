@@ -6,7 +6,7 @@ django/.pydevproject
 django/app/settings.py
 # C extensions
 *.so
-
+.settings/
 # Distribution / packaging
 .Python
 env/

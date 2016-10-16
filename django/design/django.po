@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 21:01+0000\n"
+"POT-Creation-Date: 2016-10-16 20:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,144 +19,126 @@ msgstr ""
 
 #: accounts/forms.py:11
 msgid "Password"
-msgstr "密码"
+msgstr "Password"
 
 #: accounts/forms.py:16
 msgid "Password confirm"
-msgstr "确认密码"
+msgstr "Password confirm"
 
 #: accounts/forms.py:21
 msgid "First Name"
-msgstr "名"
+msgstr "First Name"
 
 #: accounts/forms.py:26
 msgid "Last Name"
-msgstr "姓"
+msgstr "Last Name"
 
 #: accounts/forms.py:31
 msgid "User Name"
-msgstr "用户名"
+msgstr "User Name"
 
 #: accounts/forms.py:36
 msgid "name@gmail.com"
-msgstr "电子邮件name@gmail.com"
+msgstr "name@gmail.com"
 
 #: accounts/forms.py:69
 msgid "your hight in cms. e.g. 180"
-msgstr "身高厘米"
+msgstr "your hight in cms. e.g. 180"
 
 #: accounts/templates/register.html:5 templates/base.html:53
 msgid "registration"
-msgstr "球员注册"
+msgstr "Registration"
 
 #: accounts/templates/register.html:17
 msgid "submit"
-msgstr "提交"
+msgstr "Submit"
 
 #: app/views.py:17 templates/base.html:35
 msgid "Home"
-msgstr "主页"
+msgstr "Home"
 
 #: app/views.py:24
 msgid "privacy_policy"
-msgstr "隐私权利"
+msgstr "Privacy Policy"
 
 #: app/views.py:31
 msgid "terms"
-msgstr "使用条款"
+msgstr "Terms"
 
 #: app/views.py:37 templates/base.html:62 templates/contacts.html:8
 msgid "contacts"
-msgstr "联系我们"
+msgstr "Contact Us"
 
 #: game/templates/games.html:14
 msgid "past_games"
-msgstr "历届比赛"
+msgstr "Past Games"
 
 #: game/templates/games.html:32 team/templates/teams.html:13 team/views.py:39
 #: templates/base.html:60
 msgid "teams"
-msgstr "球队"
+msgstr "Teams"
 
 #: game/templates/games.html:33
 msgid "start_time"
-msgstr "比赛时间"
+msgstr "Start Time"
 
 #: game/templates/games.html:34
 msgid "address"
-msgstr "赛场地址"
+msgstr "Address"
 
 #: game/templates/games.html:35
 msgid "status"
-msgstr "比赛结果"
+msgstr "Status"
 
 #: game/views.py:28
 msgid "future_game"
-msgstr "未来比赛"
+msgstr "Future Game"
 
 #: game/views.py:34 templates/base.html:61
 msgid "games"
-msgstr "比赛"
+msgstr "Games"
 
 #: team/templates/teams.html:31
 msgid "name"
-msgstr "姓名"
+msgstr "Full Name"
 
 #: team/templates/teams.html:32
 msgid "number"
-msgstr "号码"
+msgstr "Number"
 
 #: team/views.py:172
 msgid "captain"
-msgstr "队长"
+msgstr "captain"
 
 #: templates/base.html:55
 msgid "logout"
-msgstr "退出"
+msgstr "Logout"
 
 #: templates/base.html:58
 msgid "login"
-msgstr "登录"
+msgstr "Login"
 
 #: templates/contacts.html:9
 msgid "please_contact_dustin via"
-msgstr "联系人   张砥可 电邮"
-
-#: templates/home.html:13
-msgid "about_us"
-msgstr "关于我们"
-
-#: templates/home.html:14
-msgid "about_us_p1"
-msgstr ""
-"我们是多伦多西部的篮球爱好者自发组织的小型篮球联赛。这个网站是方便大家组织篮"
-"球比赛，交流比赛技巧的平台。"
-
-#: templates/home.html:15
-msgid "how_to_join"
-msgstr "参加办法"
-
-#: templates/home.html:16
-msgid "how_to_join_p1"
-msgstr "请联系篮球组委会申请加入联盟。联系人，张砥可。dike.zhang[a]gmail.com"
+msgstr "contacts email:"
 
 #~ msgid "age"
-#~ msgstr "年龄"
+#~ msgstr "Age"
 
 #~ msgid "height"
-#~ msgstr "身高(cm)"
+#~ msgstr "Heigh(cm)"
 
 #~ msgid "Account activation failed"
-#~ msgstr "账户认证失败"
+#~ msgstr "Account activation failed"
 
 #~ msgid "Your account is now activated."
-#~ msgstr "你的账户已经认证"
+#~ msgstr "Your account is now activated."
 
 #~ msgid "Activate account at"
-#~ msgstr "账户认证时间"
+#~ msgstr "Activate account at"
 
 #~ msgid "Link is valid for %(expiration_days)s days."
-#~ msgstr "链接在 %(expiration_days)s 天内有效"
+#~ msgstr "Link is valid for %(expiration_days)s days."
 
 #~ msgid "Account activation on"
-#~ msgstr "账户有效"
+#~ msgstr "Account activation on"
