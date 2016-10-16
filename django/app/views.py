@@ -18,12 +18,21 @@ def home(request):
     }
     return render(request,'home.html', context)
 
+def privacy(request):
+
+    context = {
+        'page_title': _('privacy_policy'),
+    }
+    return render(request,'privacy.html', context)
+
+
 def contacts(request):
     context = {
         'page_title': _('contacts'),
         'contact_email': 'dike.zhang@gmail.com',
     }
     return render(request,'contacts.html', context)
+
 
 
 @login_required
