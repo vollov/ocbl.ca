@@ -25,6 +25,12 @@ def privacy(request):
     }
     return render(request,'privacy.html', context)
 
+def terms(request):
+
+    context = {
+        'page_title': _('terms'),
+    }
+    return render(request,'terms.html', context)
 
 def contacts(request):
     context = {

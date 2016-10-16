@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 17:38+0000\n"
+"POT-Creation-Date: 2016-10-16 20:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,11 @@ msgstr "Home"
 msgid "privacy_policy"
 msgstr "Privacy Policy"
 
-#: app/views.py:31 templates/base.html:62 templates/contacts.html:8
+#: app/views.py:31
+msgid "terms"
+msgstr "Terms"
+
+#: app/views.py:37 templates/base.html:62 templates/contacts.html:8
 msgid "contacts"
 msgstr "Contact Us"
 
