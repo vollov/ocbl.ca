@@ -1,0 +1,21 @@
+## Work on branch tags
+
+- create a tag
+$ git tag -a v1.8 -m "support django 1.8.3"
+
+- list tags
+$ git tag
+
+- push new tags
+git push --follow-tags
+
+- push tag changes
+git push origin :refs/tags/v1.8
+
+## Work on branch
+
+- create a branch
+git checkout -b <branch>
+
+- push local branch to remote
+git push -u origin <branch>
