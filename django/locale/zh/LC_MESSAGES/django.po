@@ -153,8 +153,7 @@ msgstr "关于我们"
 #: templates/home.html:14
 msgid "about_us_p1"
 msgstr ""
-"我们是多伦多西部的篮球爱好者自发组织的小型篮球联赛。这个网站是方便大家组织篮"
-"球比赛，交流比赛技巧的平台。"
+"安省西部华人篮球协会成立于2016年10月，是多伦多西部的篮球爱好者自发组织的小型篮球联赛。2016赛季有Kitchener, Mississauga, Milton 和 Oakville四个城市的4只球队参加，比赛场地在Milton的Mattamy国家自行车馆。"
 
 #: templates/home.html:15
 msgid "how_to_join"
