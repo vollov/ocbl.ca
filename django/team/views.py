@@ -19,11 +19,14 @@ def team_detail(request, team_id):
     teams = Team.objects.filter(active=True).order_by('name','id')
     current_team = Team.objects.get(id=team_id)
     teamHelper = TeamHelper()
+    # all active players
+    players = Player.objects.filter(team=current_team, active=True).order_by('id')
+    
     context = {
         'page_title': current_team,
         'teams':teams,
         'current_team':current_team,
-        'players_dict':teamHelper.get_players_by_team(current_team)
+        'players_dict':teamHelper.get_players_for_view(players)
     }
     return render(request,'teams.html', context)
 
@@ -140,10 +143,12 @@ def team_manage(request, team_id):
     user_id = request.session['user_id']
     current_team = Team.objects.get(id=team_id)
     teamHelper = TeamHelper()
-        
+    # get all players
+    players = Player.objects.filter(team=current_team).order_by('id')
+    
     context = {'page_title':'Team {0}'.format(current_team.name),
                'user_id':user_id,
-                   'players_dict':teamHelper.get_players_by_team(current_team)}
+                   'players_dict':teamHelper.get_players_for_view(players)}
     
     return render(request, 'team_manage.html', context)
 
@@ -152,8 +157,8 @@ class TeamHelper:
     def __init__(self):
         pass
     
-    def get_players_by_team(self, current_team):
-        players = Player.objects.filter(team=current_team, active=True).order_by('id')
+    def get_players_for_view(self, players):
+        
     
         players_dict = {}
         i = 1
