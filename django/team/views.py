@@ -138,18 +138,12 @@ def team_manage(request, team_id):
     Role = [captain]
     """
     user_id = request.session['user_id']
-    
-    players = Player.objects.filter(team__id=team_id).order_by('id')
-    team = Team.objects.get(id=team_id)
-    player_list = {}
-    i = 1
-    for p in players:
-        player_list[i] = p
-        i += 1
+    current_team = Team.objects.get(id=team_id)
+    teamHelper = TeamHelper()
         
-    context = {'page_title':'Team {0}'.format(team.name),
+    context = {'page_title':'Team {0}'.format(current_team.name),
                'user_id':user_id,
-                   'player_list':player_list}
+                   'players_dict':teamHelper.get_players_by_team(current_team)}
     
     return render(request, 'team_manage.html', context)
 
@@ -170,15 +164,11 @@ class TeamHelper:
             last_name = unicode(user.last_name)
             if player.is_captain():
                 p['name'] = u''.join((last_name,first_name,'(',_('captain'),')')).encode('utf-8').strip()
-                #'{0} {1} ({2})'.format(first_name, last_name, _('captain'))
             else:
                 p['name'] = u''.join((last_name,first_name )).encode('utf-8').strip()
-                #'{0} {1}'.format(first_name, last_name)
-        
+
             p['age'] = player.user_profile.age()
-            
-            
-            p['height'] = '{0}cm'.format(player.user_profile.height)
+            p['active'] = player.active
             if not player.number:
                 p['number'] = 'n/a'
             else:
