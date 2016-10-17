@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 00:56+0000\n"
+"POT-Creation-Date: 2016-10-17 01:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr "出生年份从1920以后计算"
 msgid "registration"
 msgstr "球员注册"
 
-#: accounts/templates/register.html:16 app/views.py:31 templates/base.html:92
+#: accounts/templates/register.html:16 app/views.py:31 templates/base.html:93
 msgid "terms"
 msgstr "使用条款"
 
@@ -81,7 +81,7 @@ msgstr "提交"
 msgid "Home"
 msgstr "主页"
 
-#: app/views.py:24 templates/base.html:92
+#: app/views.py:24 templates/base.html:93
 msgid "privacy_policy"
 msgstr "隐私权利"
 
@@ -137,6 +137,10 @@ msgstr "退出"
 #: templates/base.html:58
 msgid "login"
 msgstr "登录"
+
+#: templates/base.html:76
+msgid "ocbl"
+msgstr "安省西部华人篮球协会"
 
 #: templates/contacts.html:9
 msgid "please_contact_dustin via"
