@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 01:10+0000\n"
+"POT-Creation-Date: 2016-10-17 02:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr "出生年份从1920以后计算"
 msgid "registration"
 msgstr "球员注册"
 
-#: accounts/templates/register.html:16 app/views.py:31 templates/base.html:93
+#: accounts/templates/register.html:16 app/views.py:31 templates/base.html:94
 msgid "terms"
 msgstr "使用条款"
 
@@ -81,11 +81,15 @@ msgstr "提交"
 msgid "Home"
 msgstr "主页"
 
-#: app/views.py:24 templates/base.html:93
+#: app/views.py:24 templates/base.html:94
 msgid "privacy_policy"
 msgstr "隐私权利"
 
-#: app/views.py:37 templates/base.html:62 templates/contacts.html:8
+#: app/views.py:38 templates/base.html:54 templates/rules.html:8
+msgid "rules"
+msgstr "比赛规则"
+
+#: app/views.py:44 templates/base.html:57 templates/contacts.html:8
 msgid "contacts"
 msgstr "联系我们"
 
@@ -94,7 +98,7 @@ msgid "past_games"
 msgstr "历届比赛"
 
 #: game/templates/games.html:32 team/templates/teams.html:13 team/views.py:39
-#: templates/base.html:60
+#: templates/base.html:55
 msgid "teams"
 msgstr "球队"
 
@@ -114,7 +118,7 @@ msgstr "比赛结果"
 msgid "future_game"
 msgstr "未来比赛"
 
-#: game/views.py:34 templates/base.html:61
+#: game/views.py:34 templates/base.html:56
 msgid "games"
 msgstr "比赛"
 
@@ -130,15 +134,15 @@ msgstr "号码"
 msgid "captain"
 msgstr "队长"
 
-#: templates/base.html:55
+#: templates/base.html:61
 msgid "logout"
 msgstr "退出"
 
-#: templates/base.html:58
+#: templates/base.html:64
 msgid "login"
 msgstr "登录"
 
-#: templates/base.html:76
+#: templates/base.html:77
 msgid "ocbl"
 msgstr "安省西部华人篮球协会"
 
@@ -153,7 +157,9 @@ msgstr "关于我们"
 #: templates/home.html:14
 msgid "about_us_p1"
 msgstr ""
-"安省西部华人篮球协会成立于2016年10月，是多伦多西部的篮球爱好者自发组织的小型篮球联赛。2016赛季有Kitchener, Mississauga, Milton 和 Oakville四个城市的4只球队参加，比赛场地在Milton的Mattamy国家自行车馆。"
+"安省西部华人篮球协会成立于2016年10月，是多伦多西部的篮球爱好者自发组织的小型"
+"篮球联赛。2016赛季有Kitchener, Mississauga, Milton 和 Oakville四个城市的4只球"
+"队参加，比赛场地在Milton的Mattamy国家自行车馆。"
 
 #: templates/home.html:15
 msgid "how_to_join"

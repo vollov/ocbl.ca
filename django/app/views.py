@@ -32,6 +32,13 @@ def terms(request):
     }
     return render(request,'terms.html', context)
 
+def rules(request):
+
+    context = {
+        'page_title': _('rules'),
+    }
+    return render(request,'rules.html', context)
+
 def contacts(request):
     context = {
         'page_title': _('contacts'),
