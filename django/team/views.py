@@ -37,12 +37,13 @@ def teams(request):
     
     current_team = teams[0]
     teamHelper = TeamHelper()
+    players = Player.objects.filter(team=current_team, active=True).order_by('id')
     
     context = {
         'page_title': _('teams'),
         'teams':teams,
         'current_team':current_team,
-        'players_dict':teamHelper.get_players_by_team(current_team)
+        'players_dict':teamHelper.get_players_for_view(players)
     }
     return render(request,'teams.html', context)
 
