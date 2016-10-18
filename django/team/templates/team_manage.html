@@ -2,7 +2,7 @@
 {% block title %} - {{ page_title }} {% endblock %} 
 
 {% block content %}
-
+{% load i18n %}
 <div class="panel">
 
 	<nav class="navbar navbar-default">
@@ -36,7 +36,16 @@
           
           <td>{{player.name}}</td>
           <td>{{player.age}}</td>
-          <td>{{player.number}}</td>
+          <td>
+          
+          <form id="{{player.id}}" class="form-inline" method="post" action="/team/{{team_id}}/player/{{player.id}}/number">
+          	{% csrf_token %}
+          		<input type="text" name="number" id="inputNumber" class="form-control" size="2" value="{{player.number}}">
+          		<input type="submit" name="submit" value="{% trans "submit"%}" />
+          </form>
+          
+          
+          </td>
           
           {% if player.active %}
           <td>player</td>

@@ -8,7 +8,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 
 from accounts.models import UserProfile
-from team.forms import EnrollForm
+from team.forms import EnrollForm, PlayerForm
 from team.models import Player, Team
 
 logger = logging.getLogger(__name__)
@@ -63,6 +63,21 @@ def player_enroll(request, user_id):
         'enroll_form': enroll_form,
     }
     return render(request,'player_enroll.html', context)
+
+@login_required
+def player_number(request, team_id,player_id):
+    """HTTP GET to show player enroll form
+    Role = [player]
+    """
+    logger.debug('calling player number with player_id={0}'.format(player_id))
+    player_form = PlayerForm(data=request.POST)
+    if player_form.is_valid():
+        player_data = player_form.save(commit=False)
+        logger.debug('get player number={0}'.format(player_data.number))
+        player=Player.objects.get(id=player_id)
+        player.number = player_data.number
+        player.save()
+    return HttpResponseRedirect('/team/{0}/manage'.format(team_id))       
 
 @login_required    
 def post_enroll(request):
@@ -144,11 +159,15 @@ def team_manage(request, team_id):
     user_id = request.session['user_id']
     current_team = Team.objects.get(id=team_id)
     teamHelper = TeamHelper()
+    
+    player_form = PlayerForm()
     # get all players
     players = Player.objects.filter(team=current_team).order_by('id')
     
     context = {'page_title':'Team {0}'.format(current_team.name),
                'user_id':user_id,
+               'team_id':team_id,
+               'player_form':player_form,
                    'players_dict':teamHelper.get_players_for_view(players)}
     
     return render(request, 'team_manage.html', context)
@@ -172,7 +191,7 @@ class TeamHelper:
                 p['name'] = u''.join((last_name,first_name,'(',_('captain'),')')).encode('utf-8').strip()
             else:
                 p['name'] = u''.join((last_name,first_name )).encode('utf-8').strip()
-
+            p['id'] = player.id
             p['age'] = player.user_profile.age()
             p['active'] = player.active
             if not player.number:
