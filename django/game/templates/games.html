@@ -30,7 +30,8 @@
         <tr>
           <th>#</th>
           <th>{% trans "teams" %}</th>
-          <th>{% trans "start_time" %}</th>
+          <th>{% trans "date" %}</th>
+          <th>{% trans "time" %}</th>
           <th>{% trans "address" %}</th>
           <th>{% trans "status" %}</th>
         </tr>
@@ -41,6 +42,7 @@
         <tr>
           <th scope="row"></th>
           <td>{{game.teams}}</td>
+          <td>{{game.date}}</td>
           <td>{{game.time}}</td>
           <td>{{game.address}}</td>
           <td>{{game.status}}</td>

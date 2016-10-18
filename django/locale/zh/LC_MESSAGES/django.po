@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 02:00+0000\n"
+"POT-Creation-Date: 2016-10-18 11:35-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,157 +17,165 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/forms.py:11 accounts/forms.py:21
+#: .\accounts\forms.py:11 .\accounts\forms.py:21
 msgid "Password"
 msgstr "密码"
 
-#: accounts/forms.py:12 accounts/forms.py:26
+#: .\accounts\forms.py:12 .\accounts\forms.py:26
 msgid "Password confirm"
 msgstr "确认密码"
 
-#: accounts/forms.py:13 accounts/forms.py:31
+#: .\accounts\forms.py:13 .\accounts\forms.py:31
 msgid "First Name"
 msgstr "名"
 
-#: accounts/forms.py:14 accounts/forms.py:36
+#: .\accounts\forms.py:14 .\accounts\forms.py:36
 msgid "Last Name"
 msgstr "姓"
 
-#: accounts/forms.py:15 accounts/forms.py:41
+#: .\accounts\forms.py:15 .\accounts\forms.py:41
 msgid "User Name"
 msgstr "用户名"
 
-#: accounts/forms.py:16
+#: .\accounts\forms.py:16
 msgid "email"
 msgstr "电子邮件"
 
-#: accounts/forms.py:46
+#: .\accounts\forms.py:46
 msgid "name@gmail.com"
 msgstr "name@gmail.com"
 
-#: accounts/forms.py:70
+#: .\accounts\forms.py:70
 msgid "birth_year"
 msgstr "出生年份"
 
-#: accounts/forms.py:78
+#: .\accounts\forms.py:78
 msgid "terms_mut_be_accepted"
 msgstr "请接受网站使用条款"
 
-#: accounts/forms.py:79
+#: .\accounts\forms.py:79
 msgid "i_accept_terms_conditions"
 msgstr "我接受网站使用条款"
 
-#: accounts/forms.py:91
+#: .\accounts\forms.py:91
 msgid "birth_year_must_be_integer"
 msgstr "出生年份是4位整数"
 
-#: accounts/forms.py:94
+#: .\accounts\forms.py:94
 msgid "birth_year_must_gt_1920"
 msgstr "出生年份从1920以后计算"
 
-#: accounts/templates/register.html:5 templates/base.html:53
+#: .\accounts\templates\register.html:5 .\templates\base.html:53
 msgid "registration"
 msgstr "球员注册"
 
-#: accounts/templates/register.html:16 app/views.py:31 templates/base.html:94
+#: .\accounts\templates\register.html:16 .\app\views.py:31
+#: .\templates\base.html:94
 msgid "terms"
 msgstr "使用条款"
 
-#: accounts/templates/register.html:18
+#: .\accounts\templates\register.html:18 .\team\templates\team_manage.html:44
 msgid "submit"
 msgstr "提交"
 
-#: app/views.py:17 templates/base.html:35
+#: .\app\views.py:17 .\templates\base.html:35
 msgid "Home"
 msgstr "主页"
 
-#: app/views.py:24 templates/base.html:94
+#: .\app\views.py:24 .\templates\base.html:94
 msgid "privacy_policy"
 msgstr "隐私权利"
 
-#: app/views.py:38 templates/base.html:54 templates/rules.html:8
+#: .\app\views.py:38 .\templates\base.html:54 .\templates\rules.html:8
 msgid "rules"
 msgstr "比赛规则"
 
-#: app/views.py:44 templates/base.html:57 templates/contacts.html:8
+#: .\app\views.py:44 .\templates\base.html:57 .\templates\contacts.html:8
 msgid "contacts"
 msgstr "联系我们"
 
-#: game/templates/games.html:14
+#: .\game\templates\games.html:14
 msgid "past_games"
 msgstr "历届比赛"
 
-#: game/templates/games.html:32 team/templates/teams.html:13 team/views.py:39
-#: templates/base.html:55
+#: .\game\templates\games.html:32 .\team\templates\teams.html:13
+#: .\team\views.py:43 .\templates\base.html:55
 msgid "teams"
 msgstr "球队"
 
-#: game/templates/games.html:33
-msgid "start_time"
-msgstr "比赛时间"
+#: .\game\templates\games.html:33
+msgid "date"
+msgstr "日期"
 
-#: game/templates/games.html:34
+#: .\game\templates\games.html:34
+msgid "time"
+msgstr "时间"
+
+#: .\game\templates\games.html:35
 msgid "address"
 msgstr "赛场地址"
 
-#: game/templates/games.html:35
+#: .\game\templates\games.html:36
 msgid "status"
 msgstr "比赛结果"
 
-#: game/views.py:28
+#: .\game\views.py:29
 msgid "future_game"
 msgstr "未来比赛"
 
-#: game/views.py:34 templates/base.html:56
+#: .\game\views.py:35 .\templates\base.html:56
 msgid "games"
 msgstr "比赛"
 
-#: team/templates/teams.html:31
+#: .\team\templates\teams.html:31
 msgid "name"
 msgstr "姓名"
 
-#: team/templates/teams.html:32
+#: .\team\templates\teams.html:32
 msgid "number"
 msgstr "号码"
 
-#: team/views.py:166
+#: .\team\views.py:191
 msgid "captain"
 msgstr "队长"
 
-#: templates/base.html:61
+#: .\templates\base.html:61
 msgid "logout"
 msgstr "退出"
 
-#: templates/base.html:64
+#: .\templates\base.html:64
 msgid "login"
 msgstr "登录"
 
-#: templates/base.html:77
+#: .\templates\base.html:77
 msgid "ocbl"
 msgstr "安省西部华人篮球协会"
 
-#: templates/contacts.html:9
+#: .\templates\contacts.html:9
 msgid "please_contact_dustin via"
 msgstr "联系人   张砥可 电邮"
 
-#: templates/home.html:13
+#: .\templates\home.html:13
 msgid "about_us"
 msgstr "关于我们"
 
-#: templates/home.html:14
+#: .\templates\home.html:14
 msgid "about_us_p1"
 msgstr ""
 "安省西部华人篮球协会成立于2016年10月，是多伦多西部的篮球爱好者自发组织的小型"
 "篮球联赛。2016赛季有Kitchener, Mississauga, Milton 和 Oakville四个城市的4只球"
 "队参加，比赛场地在Milton的Mattamy国家自行车馆。"
 
-#: templates/home.html:15
+#: .\templates\home.html:15
 msgid "how_to_join"
 msgstr "参加办法"
 
-#: templates/home.html:16
+#: .\templates\home.html:16
 msgid "how_to_join_p1"
 msgstr "请联系篮球组委会申请加入联盟。联系人，张砥可。dike.zhang[a]gmail.com"
+
+#~ msgid "start_time"
+#~ msgstr "比赛时间"
 
 #~ msgid "your hight in cms. e.g. 180"
 #~ msgstr "身高厘米"

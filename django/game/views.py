@@ -21,7 +21,8 @@ def games(request):
         g = {}
         g['teams'] = '{0} - {1}'.format(game.host.name, game.guest.name)
         g['address'] = game.address
-        g['time'] = game.start_time.strftime('%Y-%m-%d  %H:%M')
+        g['date'] = game.start_time.strftime('%Y-%m-%d')
+        g['time'] = game.start_time.strftime('%H:%M') + ' - ' + game.end_time.strftime('%H:%M')
         if game.finished:
             g['status'] = '{0} - {1}'.format(game.host_score, game.guest_score)
         else:
