@@ -28,6 +28,9 @@ def games(request):
         else:
             g['status'] = _('future_game')
         
+        g['master_referee'] = game.master_referee
+        g['secondary_referee'] = game.secondary_referee
+        
         game_dict[i] = g
         i+=1
         

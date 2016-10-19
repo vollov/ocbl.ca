@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 11:35-0400\n"
+"POT-Creation-Date: 2016-10-19 17:05-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr "出生年份从1920以后计算"
 msgid "registration"
 msgstr "球员注册"
 
-#: .\accounts\templates\register.html:16 .\app\views.py:31
+#: .\accounts\templates\register.html:16 .\app\views.py:34
 #: .\templates\base.html:94
 msgid "terms"
 msgstr "使用条款"
@@ -78,19 +78,19 @@ msgstr "使用条款"
 msgid "submit"
 msgstr "提交"
 
-#: .\app\views.py:17 .\templates\base.html:35
+#: .\app\views.py:20 .\templates\base.html:35
 msgid "Home"
 msgstr "主页"
 
-#: .\app\views.py:24 .\templates\base.html:94
+#: .\app\views.py:27 .\templates\base.html:94
 msgid "privacy_policy"
 msgstr "隐私权利"
 
-#: .\app\views.py:38 .\templates\base.html:54 .\templates\rules.html:8
+#: .\app\views.py:62 .\templates\base.html:54 .\templates\rules.html:8
 msgid "rules"
 msgstr "比赛规则"
 
-#: .\app\views.py:44 .\templates\base.html:57 .\templates\contacts.html:8
+#: .\app\views.py:69 .\templates\base.html:57 .\templates\contacts.html:8
 msgid "contacts"
 msgstr "联系我们"
 
@@ -112,10 +112,18 @@ msgid "time"
 msgstr "时间"
 
 #: .\game\templates\games.html:35
+msgid "master_referee"
+msgstr "主裁判"
+
+#: .\game\templates\games.html:36
+msgid "secondary_referee"
+msgstr "副裁判"
+
+#: .\game\templates\games.html:37
 msgid "address"
 msgstr "赛场地址"
 
-#: .\game\templates\games.html:36
+#: .\game\templates\games.html:38
 msgid "status"
 msgstr "比赛结果"
 
@@ -123,7 +131,7 @@ msgstr "比赛结果"
 msgid "future_game"
 msgstr "未来比赛"
 
-#: .\game\views.py:35 .\templates\base.html:56
+#: .\game\views.py:38 .\templates\base.html:56
 msgid "games"
 msgstr "比赛"
 

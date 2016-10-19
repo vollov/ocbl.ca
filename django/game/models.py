@@ -6,10 +6,11 @@ import uuid
 
 class Referee(models.Model):
     id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
-    name = models.CharField(max_length=64, blank=True, null=True)
-
+    name = models.CharField(max_length=32, blank=True, null=True)
+    city = models.CharField(max_length=32, blank=True, null=True)
+    
     def __unicode__(self):
-        return self.name
+        return '{0} ({1})'.format(self.name, self.city)
     
 class Season(models.Model):
     id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
@@ -32,6 +33,7 @@ class Game(models.Model):
     address = models.CharField(max_length=128, blank=True, null=True)
     finished = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, editable = True)
-    referee = models.ForeignKey(Referee, null=True)
+    master_referee = models.ForeignKey(Referee, related_name='+', null=True)
+    secondary_referee = models.ForeignKey(Referee, related_name='+', null=True)
     def __unicode__(self):
         return '{0} vs {1}'.format(self.host.name,self.guest.name)
