@@ -4,8 +4,11 @@ from django.shortcuts import render
 
 from team.models import Player
 from team.views import ProfileService
+from content.models import Block
 
 from django.utils.translation import ugettext as _
+from django.utils.translation import get_language
+from django.urls import resolve
 
 import logging
 logger = logging.getLogger(__name__)
@@ -32,10 +35,32 @@ def terms(request):
     }
     return render(request,'terms.html', context)
 
-def rules(request):
+from django.template.defaulttags import register
 
+@register.filter
+def get_item(dictionary, key):
+    
+    #logger.debug('current dict={0}'.format(dictionary))
+    
+    return dictionary.get(key)
+
+def rules(request):
+    locale = get_language()
+    #current_url = resolve(request.path_info).namespace#url_name
+    
+    logger.debug('current locale={0}'.format(locale))
+    blocks = Block.objects.filter(locale=locale, page__name='rules')
+    
+    block_dict = {}
+    for block in blocks:
+        content = block.content.encode('utf-8').strip()
+        logger.debug('getting block code = {0}, content={1}'.format(block.code, content))
+        block_dict[block.code] = content
+
+    logger.debug('content = {0}'.format(block_dict['GAME_RULES']))
     context = {
         'page_title': _('rules'),
+        'block_geame_rules': block_dict['GAME_RULES'],
     }
     return render(request,'rules.html', context)
 
