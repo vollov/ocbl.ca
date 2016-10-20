@@ -54,10 +54,10 @@ def rules(request):
     block_dict = {}
     for block in blocks:
         content = block.content.encode('utf-8').strip()
-        logger.debug('getting block code = {0}, content={1}'.format(block.code, content))
+        #logger.debug('getting block code = {0}, content={1}'.format(block.code, content))
         block_dict[block.code] = content
 
-    logger.debug('content = {0}'.format(block_dict['GAME_RULES']))
+    #logger.debug('content = {0}'.format(block_dict['GAME_RULES']))
     context = {
         'page_title': _('rules'),
         'block_geame_rules': block_dict['GAME_RULES'],
