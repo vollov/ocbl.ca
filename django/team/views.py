@@ -20,8 +20,8 @@ def team_detail(request, team_id):
     current_team = Team.objects.get(id=team_id)
     teamHelper = TeamHelper()
     # all active players
-    players = Player.objects.filter(team=current_team, active=True).order_by('id')
-    
+    players = Player.objects.filter(team=current_team, active=True).order_by('number')
+
     context = {
         'page_title': current_team,
         'teams':teams,
@@ -187,6 +187,7 @@ class TeamHelper:
             user = player.user_profile.user
             first_name = unicode(user.first_name)
             last_name = unicode(user.last_name)
+            logger.debug('helper user={0}'.format(player.number))
             if player.is_captain():
                 p['name'] = u''.join((last_name,first_name,'(',_('captain'),')')).encode('utf-8').strip()
             else:
