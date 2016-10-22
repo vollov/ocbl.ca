@@ -168,7 +168,7 @@ msgstr "登录"
 
 #: templates/base.html:77
 msgid "ocbl"
-msgstr "安省西部华人篮球协会"
+msgstr "安省西部华人篮球协会 (Ontario Chinese Basketball League)"
 
 #: templates/contacts.html:9
 msgid "please_contact_dustin via"
