@@ -13,7 +13,7 @@ def games(request):
     
     #season = Entry.objects.all().filter(pub_date__year=2006)
     season = Season.objects.get(year=current_year)
-    games = Game.objects.filter(season=season).order_by('start_time','id')
+    games = Game.objects.filter(season=season).order_by('start_time','id') 
     
     game_dict = {}
     i = 1

@@ -12,6 +12,38 @@
 
 </script>
 
+
+<table class="table table-hover table-striped table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>{% trans "teams" %}</th>
+          <th>{% trans "date" %}</th>
+          <th>{% trans "time" %}</th>
+          <th>{% trans "master_referee" %}</th>
+          <th>{% trans "secondary_referee" %}</th>
+          <th>{% trans "address" %}</th>
+          <th>{% trans "status" %}</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+      {% for key, game in game_dict.items %}
+
+        <tr>
+          <th scope="row"></th>
+          <td>{{game.teams}}</td>
+          <td>{{game.date}}</td>
+          <td>{{game.time}}</td>
+          <td>{{game.master_referee}}</td>
+          <td>{{game.secondary_referee}}</td>
+          <td>{{game.address}}</td>
+          <td>{{game.status}}</td>
+        </tr>
+       {% endfor %} 
+      </tbody>
+    </table>
+    
 	============
 
 from django.shortcuts import render

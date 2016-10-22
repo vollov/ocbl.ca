@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from game.models import Season, Game, Referee
+from game.models import Season, Game, Referee, Recorder, Timer
 
 class SeasonAdmin(admin.ModelAdmin):
     model = Season
@@ -16,7 +16,16 @@ class RefereeAdmin(admin.ModelAdmin):
     model = Season
     list_display = ['name', 'city']
     
+class RecorderAdmin(admin.ModelAdmin):
+    model = Recorder
+    list_display = ['name', 'city']
+    
+class TimerAdmin(admin.ModelAdmin):
+    model = Timer
+    list_display = ['name', 'city']
 
 admin.site.register(Season, SeasonAdmin)
 admin.site.register(Game, GameAdmin)
 admin.site.register(Referee, RefereeAdmin)
+admin.site.register(Recorder, RecorderAdmin)
+admin.site.register(Timer, TimerAdmin)
