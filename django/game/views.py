@@ -30,7 +30,8 @@ def games(request):
         
         g['master_referee'] = game.master_referee
         g['secondary_referee'] = game.secondary_referee
-        
+        g['recorder'] = game.recorder
+        g['timer'] = game.timer
         game_dict[i] = g
         i+=1
         
