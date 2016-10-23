@@ -19,3 +19,18 @@ git checkout -b <branch>
 
 - push local branch to remote
 git push -u origin <branch>
+
+$ git branch -a
+* master
+  remotes/origin/HEAD
+  remotes/origin/master
+  remotes/origin/v1.0-stable
+  remotes/origin/experimental
+If you just want to take a quick peek at an upstream branch, you can check it out directly:
+
+$ git checkout origin/experimental
+But if you want to work on that branch, you'll need to create a local tracking branch:
+
+$ git checkout -b experimental origin/experimental
+and you will see
+

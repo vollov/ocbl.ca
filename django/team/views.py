@@ -53,7 +53,7 @@ def player_enroll(request, user_id):
     """HTTP GET to show player enroll form
     Role = [player]
     """
-    logger.debug('calling player enroll with user_id={0}'.format(user_id))
+    
     user = User.objects.get(id = user_id)
     enroll_form = EnrollForm()
          
@@ -69,7 +69,7 @@ def player_number(request, team_id,player_id):
     """HTTP GET to show player enroll form
     Role = [player]
     """
-    logger.debug('calling player number with player_id={0}'.format(player_id))
+    
     player_form = PlayerForm(data=request.POST)
     if player_form.is_valid():
         player_data = player_form.save(commit=False)
@@ -77,6 +77,9 @@ def player_number(request, team_id,player_id):
         player=Player.objects.get(id=player_id)
         player.number = player_data.number
         player.save()
+        
+        logger.info('calling player id={0} changed to number {1}'.format(player.user_profile.user.username, player_data.number))
+        
     return HttpResponseRedirect('/team/{0}/manage'.format(team_id))       
 
 @login_required    
@@ -104,7 +107,9 @@ def post_enroll(request):
         player.user_profile = user_profile
         player.team = team        
         player.save()
-            
+        
+        logger.info('player {0} applied enroll'.format(user_profile.user.username))
+        
         context = {'page_title':'team detail', 
                    'team_name': team.name}
         return render(request, 'enroll_submitted.html', context)
@@ -122,6 +127,8 @@ def player_approve(request, player_id):
     player = Player.objects.get(id = player_id)
     player.active = True
     player.save()
+    
+    logger.info('captain approved player {0}'.format(player.user_profile.user.username))
     
     return HttpResponseRedirect('/team/{0}/manage'.format(player.team.id))
     
@@ -187,7 +194,7 @@ class TeamHelper:
             user = player.user_profile.user
             first_name = unicode(user.first_name)
             last_name = unicode(user.last_name)
-            logger.debug('helper user={0}'.format(player.number))
+            #logger.debug('helper user={0}'.format(player.number))
             if player.is_captain():
                 p['name'] = u''.join((last_name,first_name,'(',_('captain'),')')).encode('utf-8').strip()
             elif player.is_coach():

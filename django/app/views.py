@@ -48,7 +48,7 @@ def rules(request):
     locale = get_language()
     #current_url = resolve(request.path_info).namespace#url_name
     
-    logger.debug('current locale={0}'.format(locale))
+    #logger.debug('current locale={0}'.format(locale))
     blocks = Block.objects.filter(locale=locale, page__name='rules')
     
     block_dict = {}
