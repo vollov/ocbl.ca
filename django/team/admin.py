@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import Team, TeamHistory, Setting
+from models import Team, TeamHistory, SystemSetting
 from datetime import datetime
 
 
@@ -64,10 +64,10 @@ class TeamHistoryAdmin(admin.ModelAdmin):
 admin.site.register(Team, TeamAdmin)
 admin.site.register(TeamHistory, TeamHistoryAdmin)
 
-class SettingAdmin(admin.ModelAdmin):
+class SystemSettingAdmin(admin.ModelAdmin):
     list_display = ['name','value']
 
-admin.site.register(Setting, SettingAdmin)
+admin.site.register(SystemSetting, SystemSettingAdmin)
 
 from team.models import Player
 class PlayerAdmin(admin.ModelAdmin):

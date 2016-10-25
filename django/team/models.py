@@ -6,16 +6,7 @@ from accounts.models import UserProfile
 
 import uuid
 
-class Setting(models.Model):
-	name = models.CharField(max_length=32, blank=True, null=True)
-	value = models.CharField(max_length=32, blank=True, null=True)
-	
-	def __unicode__(self):
-		return self.name
-	
-	class Meta:
-		db_table = 'setting'
-# 		ordering = ['-created_at']
+
 		
 class AbstractTeam(models.Model):
 	id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
