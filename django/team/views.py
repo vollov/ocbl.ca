@@ -8,7 +8,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 
 from accounts.models import UserProfile
-from team.forms import EnrollForm
+from team.forms import EnrollForm, PlayerForm
 from team.models import Player, Team
 
 logger = logging.getLogger(__name__)
@@ -19,11 +19,14 @@ def team_detail(request, team_id):
     teams = Team.objects.filter(active=True).order_by('name','id')
     current_team = Team.objects.get(id=team_id)
     teamHelper = TeamHelper()
+    # all active players
+    players = Player.objects.filter(team=current_team, active=True).order_by('number')
+
     context = {
         'page_title': current_team,
         'teams':teams,
         'current_team':current_team,
-        'players_dict':teamHelper.get_players_by_team(current_team)
+        'players_dict':teamHelper.get_players_for_view(players)
     }
     return render(request,'teams.html', context)
 
@@ -34,12 +37,13 @@ def teams(request):
     
     current_team = teams[0]
     teamHelper = TeamHelper()
+    players = Player.objects.filter(team=current_team, active=True).order_by('id')
     
     context = {
         'page_title': _('teams'),
         'teams':teams,
         'current_team':current_team,
-        'players_dict':teamHelper.get_players_by_team(current_team)
+        'players_dict':teamHelper.get_players_for_view(players)
     }
     return render(request,'teams.html', context)
 
@@ -49,7 +53,7 @@ def player_enroll(request, user_id):
     """HTTP GET to show player enroll form
     Role = [player]
     """
-    logger.debug('calling player enroll with user_id={0}'.format(user_id))
+    
     user = User.objects.get(id = user_id)
     enroll_form = EnrollForm()
          
@@ -59,6 +63,24 @@ def player_enroll(request, user_id):
         'enroll_form': enroll_form,
     }
     return render(request,'player_enroll.html', context)
+
+@login_required
+def player_number(request, team_id,player_id):
+    """HTTP GET to show player enroll form
+    Role = [player]
+    """
+    
+    player_form = PlayerForm(data=request.POST)
+    if player_form.is_valid():
+        player_data = player_form.save(commit=False)
+        logger.debug('get player number={0}'.format(player_data.number))
+        player=Player.objects.get(id=player_id)
+        player.number = player_data.number
+        player.save()
+        
+        logger.info('calling player id={0} changed to number {1}'.format(player.user_profile.user.username, player_data.number))
+        
+    return HttpResponseRedirect('/team/{0}/manage'.format(team_id))       
 
 @login_required    
 def post_enroll(request):
@@ -85,7 +107,9 @@ def post_enroll(request):
         player.user_profile = user_profile
         player.team = team        
         player.save()
-            
+        
+        logger.info('player {0} applied enroll'.format(user_profile.user.username))
+        
         context = {'page_title':'team detail', 
                    'team_name': team.name}
         return render(request, 'enroll_submitted.html', context)
@@ -103,6 +127,8 @@ def player_approve(request, player_id):
     player = Player.objects.get(id = player_id)
     player.active = True
     player.save()
+    
+    logger.info('captain approved player {0}'.format(player.user_profile.user.username))
     
     return HttpResponseRedirect('/team/{0}/manage'.format(player.team.id))
     
@@ -138,18 +164,18 @@ def team_manage(request, team_id):
     Role = [captain]
     """
     user_id = request.session['user_id']
+    current_team = Team.objects.get(id=team_id)
+    teamHelper = TeamHelper()
     
-    players = Player.objects.filter(team__id=team_id).order_by('id')
-    team = Team.objects.get(id=team_id)
-    player_list = {}
-    i = 1
-    for p in players:
-        player_list[i] = p
-        i += 1
-        
-    context = {'page_title':'Team {0}'.format(team.name),
+    player_form = PlayerForm()
+    # get all players
+    players = Player.objects.filter(team=current_team).order_by('id')
+    
+    context = {'page_title':'Team {0}'.format(current_team.name),
                'user_id':user_id,
-                   'player_list':player_list}
+               'team_id':team_id,
+               'player_form':player_form,
+                   'players_dict':teamHelper.get_players_for_view(players)}
     
     return render(request, 'team_manage.html', context)
 
@@ -158,8 +184,8 @@ class TeamHelper:
     def __init__(self):
         pass
     
-    def get_players_by_team(self, current_team):
-        players = Player.objects.filter(team=current_team, active=True).order_by('id')
+    def get_players_for_view(self, players):
+        
     
         players_dict = {}
         i = 1
@@ -168,17 +194,16 @@ class TeamHelper:
             user = player.user_profile.user
             first_name = unicode(user.first_name)
             last_name = unicode(user.last_name)
+            #logger.debug('helper user={0}'.format(player.number))
             if player.is_captain():
                 p['name'] = u''.join((last_name,first_name,'(',_('captain'),')')).encode('utf-8').strip()
-                #'{0} {1} ({2})'.format(first_name, last_name, _('captain'))
+            elif player.is_coach():
+                p['name'] = u''.join((last_name,first_name,'(',_('coach'),')')).encode('utf-8').strip()
             else:
                 p['name'] = u''.join((last_name,first_name )).encode('utf-8').strip()
-                #'{0} {1}'.format(first_name, last_name)
-        
+            p['id'] = player.id
             p['age'] = player.user_profile.age()
-            
-            
-            p['height'] = '{0}cm'.format(player.user_profile.height)
+            p['active'] = player.active
             if not player.number:
                 p['number'] = 'n/a'
             else:

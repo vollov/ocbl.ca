@@ -27,6 +27,9 @@ def register(request):
             
             # save user in session
             login(request, user)
+            
+            logger.info('user {0} registered successfully'.format(user.username))
+            
             request.session['user_id'] = user.id
             return HttpResponseRedirect(reverse('profile'))
 

@@ -4,8 +4,7 @@
     "pk": "4eeadbb6-c1e4-4ac3-823d-0ac3596341f1",
     "fields": {
         "user": 2,
-        "phone": "519-555-6677",
-        "birthday": "1975-10-13"
+        "birth_year": "1975"
     }
 },
 {
@@ -13,8 +12,7 @@
     "pk": "4fe008c8-6c66-41e9-8f0b-a1308b958e1d",
     "fields": {
         "user": 9,
-        "phone": "461-222-3333",
-        "birthday": "1988-03-09"
+        "birth_year": "1988"
     }
 },
 {
@@ -22,8 +20,7 @@
     "pk": "d04b73f5-4c0a-441c-a631-6ae3c8433cde",
     "fields": {
         "user": 8,
-        "phone": "416-333-4444",
-        "birthday": "1977-10-03"
+        "birth_year": "1977"
     }
 }
 ]

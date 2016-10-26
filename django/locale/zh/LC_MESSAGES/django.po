@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 23:21+0000\n"
+"POT-Creation-Date: 2016-10-22 16:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,47 +17,79 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/forms.py:11
+#: accounts/forms.py:11 accounts/forms.py:21
 msgid "Password"
 msgstr "密码"
 
-#: accounts/forms.py:16
+#: accounts/forms.py:12 accounts/forms.py:26
 msgid "Password confirm"
 msgstr "确认密码"
 
-#: accounts/forms.py:21
+#: accounts/forms.py:13 accounts/forms.py:31
 msgid "First Name"
 msgstr "名"
 
-#: accounts/forms.py:26
+#: accounts/forms.py:14 accounts/forms.py:36
 msgid "Last Name"
 msgstr "姓"
 
-#: accounts/forms.py:31
+#: accounts/forms.py:15 accounts/forms.py:41
 msgid "User Name"
 msgstr "用户名"
 
-#: accounts/forms.py:36
+#: accounts/forms.py:16
+msgid "email"
+msgstr "电子邮件"
+
+#: accounts/forms.py:46
 msgid "name@gmail.com"
-msgstr "电子邮件name@gmail.com"
+msgstr "name@gmail.com"
 
-#: accounts/forms.py:69
-msgid "your hight in cms. e.g. 180"
-msgstr "身高厘米"
+#: accounts/forms.py:70
+msgid "birth_year"
+msgstr "出生年份"
 
-#: accounts/templates/register.html:5 templates/base.html:52
+#: accounts/forms.py:78
+msgid "terms_mut_be_accepted"
+msgstr "请接受网站使用条款"
+
+#: accounts/forms.py:79
+msgid "i_accept_terms_conditions"
+msgstr "我接受网站使用条款"
+
+#: accounts/forms.py:91
+msgid "birth_year_must_be_integer"
+msgstr "出生年份是4位整数"
+
+#: accounts/forms.py:94
+msgid "birth_year_must_gt_1920"
+msgstr "出生年份从1920以后计算"
+
+#: accounts/templates/register.html:5 templates/base.html:53
 msgid "registration"
 msgstr "球员注册"
 
-#: accounts/templates/register.html:17
+#: accounts/templates/register.html:16 app/views.py:34 templates/base.html:94
+msgid "terms"
+msgstr "使用条款"
+
+#: accounts/templates/register.html:18 team/templates/team_manage.html:44
 msgid "submit"
 msgstr "提交"
 
-#: app/views.py:17 templates/base.html:34
+#: app/views.py:20 templates/base.html:35
 msgid "Home"
 msgstr "主页"
 
-#: app/views.py:23 templates/base.html:61 templates/contacts.html:8
+#: app/views.py:27 templates/base.html:94
+msgid "privacy_policy"
+msgstr "隐私权利"
+
+#: app/views.py:62 templates/base.html:54 templates/rules.html:8
+msgid "rules"
+msgstr "比赛规则"
+
+#: app/views.py:69 templates/base.html:57 templates/contacts.html:8
 msgid "contacts"
 msgstr "联系我们"
 
@@ -65,64 +97,113 @@ msgstr "联系我们"
 msgid "past_games"
 msgstr "历届比赛"
 
-#: game/templates/games.html:32 team/templates/teams.html:13 team/views.py:39
-#: templates/base.html:59
-msgid "teams"
-msgstr "球队"
+#: game/templates/games.html:33 notes.txt:22
+msgid "time"
+msgstr "时间"
 
-#: game/templates/games.html:33
-msgid "start_time"
-msgstr "比赛时间"
-
-#: game/templates/games.html:34
+#: game/templates/games.html:33 notes.txt:25
 msgid "address"
 msgstr "赛场地址"
 
-#: game/templates/games.html:35
+#: game/templates/games.html:36 notes.txt:20 team/templates/teams.html:13
+#: team/views.py:43 templates/base.html:55
+msgid "teams"
+msgstr "球队"
+
+#: game/templates/games.html:39 notes.txt:26
 msgid "status"
 msgstr "比赛结果"
 
-#: game/views.py:28
+#: game/templates/games.html:43 notes.txt:23
+msgid "master_referee"
+msgstr "主裁判"
+
+#: game/templates/games.html:47 notes.txt:24
+msgid "secondary_referee"
+msgstr "副裁判"
+
+#: game/templates/games.html:50
+msgid "recorder"
+msgstr "记分员"
+
+#: game/templates/games.html:54
+msgid "timer"
+msgstr "记时员"
+
+#: game/views.py:29
 msgid "future_game"
 msgstr "未来比赛"
 
-#: game/views.py:34 templates/base.html:60
+#: game/views.py:39 templates/base.html:56
 msgid "games"
 msgstr "比赛"
+
+#: notes.txt:21
+msgid "date"
+msgstr "日期"
 
 #: team/templates/teams.html:31
 msgid "name"
 msgstr "姓名"
 
 #: team/templates/teams.html:32
-msgid "age"
-msgstr "年龄"
-
-#: team/templates/teams.html:33
-msgid "height"
-msgstr "身高(cm)"
-
-#: team/templates/teams.html:34
 msgid "number"
 msgstr "号码"
 
-#: team/views.py:172
+#: team/views.py:192
 msgid "captain"
 msgstr "队长"
 
-#: templates/base.html:54
+#: team/views.py:194
+msgid "coach"
+msgstr "教练"
+
+#: templates/base.html:61
 msgid "logout"
 msgstr "退出"
 
-#: templates/base.html:57
+#: templates/base.html:64
 msgid "login"
 msgstr "登录"
 
+#: templates/base.html:77
+msgid "ocbl"
+msgstr "安省西部华人篮球协会 (Ontario Chinese Basketball League)"
+
 #: templates/contacts.html:9
-#, fuzzy
-#| msgid "please_contact_dustin via {{contact_email}}"
 msgid "please_contact_dustin via"
 msgstr "联系人   张砥可 电邮"
+
+#: templates/home.html:13
+msgid "about_us"
+msgstr "关于我们"
+
+#: templates/home.html:14
+msgid "about_us_p1"
+msgstr ""
+"安省西部华人篮球协会成立于2016年10月，是多伦多西部的篮球爱好者自发组织的小型"
+"篮球联赛。2016赛季有Kitchener, Mississauga, Milton 和 Oakville四个城市的4只球"
+"队参加，比赛场地在Milton的Mattamy国家自行车馆。"
+
+#: templates/home.html:15
+msgid "how_to_join"
+msgstr "参加办法"
+
+#: templates/home.html:16
+msgid "how_to_join_p1"
+msgstr "请联系篮球组委会申请加入联盟。联系人，张砥可。dike.zhang[a]gmail.com"
+
+#~ msgid "start_time"
+#~ msgstr "比赛时间"
+
+#~ msgid "your hight in cms. e.g. 180"
+#~ msgstr "身高厘米"
+
+#~ msgid "age"
+#~ msgstr "年龄"
+
+#~ msgid "height"
+#~ msgstr "身高(cm)"
 
 #~ msgid "Account activation failed"
 #~ msgstr "账户认证失败"

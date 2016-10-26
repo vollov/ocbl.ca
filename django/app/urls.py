@@ -24,7 +24,9 @@ urlpatterns = [
     # base page
     url(r'^$', views.home, name='home'),
     url(r'^profile/', views.profile, name='profile'),
-    
+    url(r'^privacy/', views.privacy, name='privacy'),
+    url(r'^terms/', views.terms, name='terms'),
+    url(r'^rules/', views.rules, name='rules'),
     url(r'^contacts/', views.contacts, name='contacts'),
     
     # modules urls

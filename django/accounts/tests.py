@@ -48,8 +48,7 @@ class TestUserprofileForm(TestCase):
             user.save()
             
             profile_form_data = {
-                'phone':'416-222-3333',
-                'birthday':'1983-12-22',
+                'birth_year':1983,
                 'captcha_0':'dummy-value',
                 'captcha_1':'PASSED'
             }
@@ -88,8 +87,7 @@ class TestRegistrationForm(TestCase):
             user.set_password(user.password)
             
             profile_form_data = {
-                'phone':'416-222-3333',
-                'birthday':'1983-12-22',
+                'birth_year':1983,
                 'captcha_0':'dummy-value',
                 'captcha_1':'PASSED'
             }

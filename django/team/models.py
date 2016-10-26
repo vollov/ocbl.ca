@@ -51,7 +51,10 @@ class Player(AbstractPlayer):
 	
 	def is_captain(self):
 		return self.user_profile.user.groups.filter(name='captain').exists()
-       
+	
+	def is_coach(self):
+		return self.user_profile.user.groups.filter(name='coach').exists()
+		
 	def save(self):
 		player = super(Player, self).save()
 	

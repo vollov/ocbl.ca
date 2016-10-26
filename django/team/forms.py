@@ -12,7 +12,7 @@ class EnrollForm(forms.ModelForm):
 
 class PlayerForm(forms.ModelForm):
         
-    number = forms.IntegerField(required=True,widget=forms.TextInput(
+    number = forms.IntegerField(required=True,widget=forms.NumberInput(
                     attrs={'class':'form-control',
                            'placeholder' :'number of the player. e.g. 18',
                     }))

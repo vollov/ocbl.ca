@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 23:21+0000\n"
+"POT-Creation-Date: 2016-10-16 20:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr "name@gmail.com"
 msgid "your hight in cms. e.g. 180"
 msgstr "your hight in cms. e.g. 180"
 
-#: accounts/templates/register.html:5 templates/base.html:52
+#: accounts/templates/register.html:5 templates/base.html:53
 msgid "registration"
 msgstr "Registration"
 
@@ -53,11 +53,19 @@ msgstr "Registration"
 msgid "submit"
 msgstr "Submit"
 
-#: app/views.py:17 templates/base.html:34
+#: app/views.py:17 templates/base.html:35
 msgid "Home"
 msgstr "Home"
 
-#: app/views.py:23 templates/base.html:61 templates/contacts.html:8
+#: app/views.py:24
+msgid "privacy_policy"
+msgstr "Privacy Policy"
+
+#: app/views.py:31
+msgid "terms"
+msgstr "Terms"
+
+#: app/views.py:37 templates/base.html:62 templates/contacts.html:8
 msgid "contacts"
 msgstr "Contact Us"
 
@@ -66,7 +74,7 @@ msgid "past_games"
 msgstr "Past Games"
 
 #: game/templates/games.html:32 team/templates/teams.html:13 team/views.py:39
-#: templates/base.html:59
+#: templates/base.html:60
 msgid "teams"
 msgstr "Teams"
 
@@ -86,7 +94,7 @@ msgstr "Status"
 msgid "future_game"
 msgstr "Future Game"
 
-#: game/views.py:34 templates/base.html:60
+#: game/views.py:34 templates/base.html:61
 msgid "games"
 msgstr "Games"
 
@@ -95,14 +103,6 @@ msgid "name"
 msgstr "Full Name"
 
 #: team/templates/teams.html:32
-msgid "age"
-msgstr "Age"
-
-#: team/templates/teams.html:33
-msgid "height"
-msgstr "Heigh(cm)"
-
-#: team/templates/teams.html:34
 msgid "number"
 msgstr "Number"
 
@@ -110,17 +110,23 @@ msgstr "Number"
 msgid "captain"
 msgstr "captain"
 
-#: templates/base.html:54
+#: templates/base.html:55
 msgid "logout"
 msgstr "Logout"
 
-#: templates/base.html:57
+#: templates/base.html:58
 msgid "login"
 msgstr "Login"
 
 #: templates/contacts.html:9
 msgid "please_contact_dustin via"
 msgstr "contacts email:"
+
+#~ msgid "age"
+#~ msgstr "Age"
+
+#~ msgid "height"
+#~ msgstr "Heigh(cm)"
 
 #~ msgid "Account activation failed"
 #~ msgstr "Account activation failed"

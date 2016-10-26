@@ -19,3 +19,8 @@ db
 =================
 SELECT default_character_set_name FROM information_schema.SCHEMATA 
 WHERE schema_name = "ocbl";
+
+CREATE DATABASE ocbl CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE ocbl.content_block MODIFY COLUMN content TEXT
+    CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+    

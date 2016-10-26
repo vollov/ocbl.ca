@@ -13,7 +13,7 @@ def games(request):
     
     #season = Entry.objects.all().filter(pub_date__year=2006)
     season = Season.objects.get(year=current_year)
-    games = Game.objects.filter(season=season).order_by('start_time','id')
+    games = Game.objects.filter(season=season).order_by('start_time','id') 
     
     game_dict = {}
     i = 1
@@ -21,12 +21,17 @@ def games(request):
         g = {}
         g['teams'] = '{0} - {1}'.format(game.host.name, game.guest.name)
         g['address'] = game.address
-        g['time'] = game.start_time.strftime('%d, %b %Y-%m-%d:%H-%M')
+        g['date'] = game.start_time.strftime('%Y-%m-%d')
+        g['time'] = game.start_time.strftime('%H:%M') + ' - ' + game.end_time.strftime('%H:%M')
         if game.finished:
             g['status'] = '{0} - {1}'.format(game.host_score, game.guest_score)
         else:
             g['status'] = _('future_game')
         
+        g['master_referee'] = game.master_referee
+        g['secondary_referee'] = game.secondary_referee
+        g['recorder'] = game.recorder
+        g['timer'] = game.timer
         game_dict[i] = g
         i+=1
         

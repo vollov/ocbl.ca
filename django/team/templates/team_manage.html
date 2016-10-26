@@ -2,7 +2,7 @@
 {% block title %} - {{ page_title }} {% endblock %} 
 
 {% block content %}
-
+{% load i18n %}
 <div class="panel">
 
 	<nav class="navbar navbar-default">
@@ -16,30 +16,36 @@
 		</div>
 	</nav>
 
-{% if player_list %}
+{% if players_dict %}
 <table class="table table-bordered table-hover table-striped table-condensed">
       <thead>
         <tr>
           <th>#</th>
           <th>Name</th>
           <th>Age</th>
-          <th>Phone</th>
+          <th>Number</th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
 
-      {% for key, player in player_list.items %}
+      {% for key, player in players_dict.items %}
 
         <tr>
           <th scope="row">{{key}}</th>
-          {% if player.is_captain %}
-          <td>{{player.user_profile.user.last_name}} {{player.user_profile.user.first_name}} (captain)</td>
-          {% else %}
-    	  <td>{{player.user_profile.user.last_name}} {{player.user_profile.user.first_name}}</td>
-		  {% endif %}
-          <td>{{player.user_profile.age}}</td>
-          <td>{{player.user_profile.phone}}</td>
+          
+          <td>{{player.name}}</td>
+          <td>{{player.age}}</td>
+          <td>
+          
+          <form id="{{player.id}}" class="form-inline" method="post" action="/team/{{team_id}}/player/{{player.id}}/number">
+          	{% csrf_token %}
+          		<input type="text" name="number" id="inputNumber" class="form-control" size="2" value="{{player.number}}">
+          		<input type="submit" name="submit" value="{% trans "submit"%}" />
+          </form>
+          
+          
+          </td>
           
           {% if player.active %}
           <td>player</td>

@@ -1,0 +1,66 @@
+[
+{
+    "model": "game.referee",
+    "pk": "21d60c99-f040-411b-be85-33e23340c4ea",
+    "fields": {
+        "name": "Raymond",
+        "city": "Milton"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "4a841d50-aace-4372-ac1b-4f9a53fa37c4",
+    "fields": {
+        "name": "\u7a0b\u5b9d\u4eae",
+        "city": "Mississauga"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "4f8639c8-a14c-4529-be9b-c2cf83bab23f",
+    "fields": {
+        "name": "\u8d3e\u80dc",
+        "city": "Milton"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "5d28381f-9075-42ff-be72-a86654851b32",
+    "fields": {
+        "name": "\u5f20\u8f72",
+        "city": "Oakville"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "65133abe-66b9-454c-b4de-a6a58c1eff30",
+    "fields": {
+        "name": "\u8001\u7f57",
+        "city": "Oakville"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "8e668ff1-70e6-4db9-9934-e5ef04f31584",
+    "fields": {
+        "name": "\u5f20\u7825\u53ef",
+        "city": "Kitchener"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "af90daf3-b133-407e-b0a9-7e4025da137f",
+    "fields": {
+        "name": "\u4f59\u54c1\u7f61",
+        "city": "Kitchener"
+    }
+},
+{
+    "model": "game.referee",
+    "pk": "bd758179-148c-4f15-b95c-def936c4795f",
+    "fields": {
+        "name": "Alex Song",
+        "city": "Mississauga"
+    }
+}
+]

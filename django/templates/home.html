@@ -4,7 +4,17 @@
 
 {% load staticfiles %}
 {% block content %}
-
-  <h3>Home</h3>
+{% load i18n %}
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{% static "images/basketball.jpg" %}" alt="basketball">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{% trans "about_us" %}</h2>
+          <p>{% trans "about_us_p1" %}</p>
+          <h2 class="featurette-heading">{% trans "how_to_join" %}</h2>
+          <p>{% trans "how_to_join_p1" %}</p>
+          </div>
+      </div>
 
 {% endblock %}
