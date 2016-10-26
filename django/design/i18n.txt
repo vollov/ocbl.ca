@@ -11,6 +11,12 @@ LOCALE_PATHS = [
     LOCALE_PATH,
 ]
 
+install get text
+==========
+https://mlocati.github.io/articles/gettext-iconv-windows.html
+xgettext --version
+
+
 apt-get install fcitx-googlepinyin
 im-config
 Google-Pinyin. Press OK. 
