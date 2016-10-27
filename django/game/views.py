@@ -3,8 +3,29 @@ from django.utils.translation import ugettext as _
 
 import datetime
 
-from game.models import Season, Game
+from game.models import Season, Game, PlayerGameScore
 
+def game_score(request, game_id):
+    """Print score detail"""
+    game = Game.objects.get(id = game_id)
+    host = game.host
+    guest = game.guest
+    
+    host_scores = PlayerGameScore.objects.filter(game__id = game_id, player__team__id = host.id, )#.order_by(player__number)
+        
+    guest_scores = PlayerGameScore.objects.filter(game__id = game_id, player__team__id = guest.id)
+    
+    context = {
+        'page_title': _('games'),
+        'host_scores':host_scores,
+        'guest_scores':guest_scores,
+        'host':host,
+        'guest':guest,
+        'game':game,
+    }
+    return render(request,'game_score.html', context)
+    
+    
 def games(request):
     """List games for current year"""
     
@@ -19,6 +40,7 @@ def games(request):
     i = 1
     for game in games:
         g = {}
+        g['id'] = game.id
         g['teams'] = '{0} - {1}'.format(game.host.name, game.guest.name)
         g['address'] = game.address
         g['date'] = game.start_time.strftime('%Y-%m-%d')

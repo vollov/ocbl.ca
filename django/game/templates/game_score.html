@@ -1,0 +1,93 @@
+{% extends 'base.html' %} 
+{% block title %} - {{ page_title }} {% endblock %} 
+
+{% block content %}
+{% load i18n %}
+<div class="panel">
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="/game"
+					class="btn btn-success navbar-btn"> Back </a>
+				
+				<p class="navbar-text">{{ game.year }} {{ game.name }} </p>
+			</div>
+		</div>
+	</nav>
+
+<h3>{% trans "Host"%} {{ host.name }}</h3>
+<table class="table table-bordered table-hover table-striped table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Number</th>
+          <th>starters</th>
+          <th>personal foul</th>
+          <th>free throw</th>
+          <th>field goal</th>
+          <th>three_point</th>
+          <th>total_points</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {% for hs in host_scores %}
+
+        <tr>
+          <th scope="row"></th>
+          
+          <td>{{hs.player.full_name}}</td>
+          <td>{{hs.player.number}}</td>
+          <td>{{hs.starters}}</td>
+          <td>{{hs.personal_foul}}</td>
+          <td>{{hs.free_throw}}</td>
+          <td>{{hs.field_goal}}</td>
+          <td>{{hs.three_point}}</td>
+          <td>{{hs.total_points}}</td>
+    
+        </tr>
+       {% endfor %} 
+      </tbody>
+    </table>
+
+<h3>{% trans "Guest"%} {{ guest.name }} </h3>
+<table class="table table-bordered table-hover table-striped table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Number</th>
+          <th>starters</th>
+          <th>personal foul</th>
+          <th>free throw</th>
+          <th>field goal</th>
+          <th>three_point</th>
+          <th>total_points</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {% for gs in guest_scores %}
+
+        <tr>
+          <th scope="row"></th>
+          
+          <td>{{gs.player.name}}</td>
+          <td>{{gs.player.number}}</td>
+          <td>{{gs.starters}}</td>
+          <td>{{gs.personal_foul}}</td>
+          <td>{{gs.free_throw}}</td>
+          <td>{{gs.field_goal}}</td>
+          <td>{{gs.three_point}}</td>
+          <td>{{gs.total_points}}</td>
+    
+        </tr>
+       {% endfor %} 
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

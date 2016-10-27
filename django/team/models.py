@@ -58,6 +58,10 @@ class Player(AbstractPlayer):
 	def save(self):
 		player = super(Player, self).save()
 	
+	def full_name(self):
+		user = self.user_profile.user
+		return user.last_name + ' ' +user.first_name
+	
 # 	def __unicode__(self):
 # 		user = self.user_profile.user
 # 		return u''.join((user.last_name,' ',user.first_name )).encode('utf-8').strip()
@@ -70,6 +74,9 @@ class Player(AbstractPlayer):
 			number = 'n/a'
 		return user.last_name + ' ' +user.first_name + '(' + number + ') ' + self.team.city
 	
+	class Meta:
+		ordering = ('number',)
+
 class PlayerHistory(AbstractTeam):
 	year = models.CharField(max_length=4, blank=False, null=False)
 	team_history = models.ForeignKey(TeamHistory)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-22 16:07+0000\n"
+"POT-Creation-Date: 2016-10-27 04:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,11 +65,11 @@ msgstr "出生年份是4位整数"
 msgid "birth_year_must_gt_1920"
 msgstr "出生年份从1920以后计算"
 
-#: accounts/templates/register.html:5 templates/base.html:53
+#: accounts/templates/register.html:5 templates/base.html:54
 msgid "registration"
 msgstr "球员注册"
 
-#: accounts/templates/register.html:16 app/views.py:34 templates/base.html:94
+#: accounts/templates/register.html:16 app/views.py:34 templates/base.html:96
 msgid "terms"
 msgstr "使用条款"
 
@@ -81,17 +81,41 @@ msgstr "提交"
 msgid "Home"
 msgstr "主页"
 
-#: app/views.py:27 templates/base.html:94
+#: app/views.py:27 templates/base.html:96
 msgid "privacy_policy"
 msgstr "隐私权利"
 
-#: app/views.py:62 templates/base.html:54 templates/rules.html:8
+#: app/views.py:62 templates/base.html:56 templates/rules.html:8
 msgid "rules"
 msgstr "比赛规则"
 
-#: app/views.py:69 templates/base.html:57 templates/contacts.html:8
+#: app/views.py:69 templates/base.html:59 templates/contacts.html:8
 msgid "contacts"
 msgstr "联系我们"
+
+#: game/models.py:69
+msgid "Starter"
+msgstr "首发"
+
+#: game/models.py:70
+msgid "Substitutes"
+msgstr "替补"
+
+#: game/models.py:71
+msgid "Not Play"
+msgstr "缺席"
+
+#: game/models.py:72
+msgid "N/A"
+msgstr "无数据"
+
+#: game/templates/game_score.html:19
+msgid "Host"
+msgstr ""
+
+#: game/templates/game_score.html:55
+msgid "Guest"
+msgstr ""
 
 #: game/templates/games.html:14
 msgid "past_games"
@@ -105,38 +129,42 @@ msgstr "时间"
 msgid "address"
 msgstr "赛场地址"
 
-#: game/templates/games.html:36 notes.txt:20 team/templates/teams.html:13
-#: team/views.py:43 templates/base.html:55
+#: game/templates/games.html:37 notes.txt:20 team/templates/teams.html:13
+#: team/views.py:43 templates/base.html:57
 msgid "teams"
 msgstr "球队"
 
-#: game/templates/games.html:39 notes.txt:26
+#: game/templates/games.html:40 notes.txt:26
 msgid "status"
 msgstr "比赛结果"
 
-#: game/templates/games.html:43 notes.txt:23
+#: game/templates/games.html:44 notes.txt:23
 msgid "master_referee"
 msgstr "主裁判"
 
-#: game/templates/games.html:47 notes.txt:24
+#: game/templates/games.html:48 notes.txt:24
 msgid "secondary_referee"
 msgstr "副裁判"
 
-#: game/templates/games.html:50
+#: game/templates/games.html:51
 msgid "recorder"
 msgstr "记分员"
 
-#: game/templates/games.html:54
+#: game/templates/games.html:55
 msgid "timer"
 msgstr "记时员"
 
-#: game/views.py:29
-msgid "future_game"
-msgstr "未来比赛"
+#: game/templates/games.html:66
+msgid "game_details"
+msgstr "得分统计"
 
-#: game/views.py:39 templates/base.html:56
+#: game/views.py:19 game/views.py:61 templates/base.html:58
 msgid "games"
 msgstr "比赛"
+
+#: game/views.py:51
+msgid "future_game"
+msgstr "未来比赛"
 
 #: notes.txt:21
 msgid "date"
@@ -150,23 +178,27 @@ msgstr "姓名"
 msgid "number"
 msgstr "号码"
 
-#: team/views.py:192
+#: team/templates/teams.html:34
+msgid "age"
+msgstr "年龄"
+
+#: team/views.py:199
 msgid "captain"
 msgstr "队长"
 
-#: team/views.py:194
+#: team/views.py:201
 msgid "coach"
 msgstr "教练"
 
-#: templates/base.html:61
+#: templates/base.html:63
 msgid "logout"
 msgstr "退出"
 
-#: templates/base.html:64
+#: templates/base.html:66
 msgid "login"
 msgstr "登录"
 
-#: templates/base.html:77
+#: templates/base.html:79
 msgid "ocbl"
 msgstr "安省西部华人篮球协会 (Ontario Chinese Basketball League)"
 
@@ -198,9 +230,6 @@ msgstr "请联系篮球组委会申请加入联盟。联系人，张砥可。dik
 
 #~ msgid "your hight in cms. e.g. 180"
 #~ msgstr "身高厘米"
-
-#~ msgid "age"
-#~ msgstr "年龄"
 
 #~ msgid "height"
 #~ msgstr "身高(cm)"
