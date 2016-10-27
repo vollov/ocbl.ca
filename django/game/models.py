@@ -63,11 +63,13 @@ class Start_Status:
     STARTER = 'Y'
     SUBSTITUTES = 'S'
     NOT_PLAY = 'NP'
+    NOT_AVAILABLE = 'NA'
     
     STATUS = (
         (STARTER, _('Starter')),
         (SUBSTITUTES, _('Substitutes')),
         (NOT_PLAY, _('Not Play')),
+        (NOT_AVAILABLE, _('N/A')),
     )
     
 class PlayerGameScore(models.Model):
@@ -79,7 +81,7 @@ class PlayerGameScore(models.Model):
     
     starters = models.CharField(max_length=2,
                                       choices=Start_Status.STATUS,
-                                      default='S')
+                                      default='NA')
                                       
     personal_foul = models.IntegerField(default=0, blank=True, null=True)
     free_throw = models.IntegerField(default=0)

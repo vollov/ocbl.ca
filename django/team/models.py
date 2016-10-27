@@ -64,7 +64,11 @@ class Player(AbstractPlayer):
 	
 	def __unicode__(self):
 		user = self.user_profile.user
-		return user.last_name + ' ' +user.first_name 
+		if self.number:
+			number = str(self.number)
+		else:
+			number = 'n/a'
+		return user.last_name + ' ' +user.first_name + '(' + number + ') ' + self.team.city
 	
 class PlayerHistory(AbstractTeam):
 	year = models.CharField(max_length=4, blank=False, null=False)
