@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from team.models import Team
+from team.models import Team, Player
 import uuid
+from datetime import datetime
+from django.utils.translation import ugettext as _
 
 class Referee(models.Model):
     id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
@@ -55,4 +57,40 @@ class Game(models.Model):
     timer= models.ForeignKey(Timer, null=True)
     
     def __unicode__(self):
-        return '{0} vs {1}'.format(self.host.name,self.guest.name)
+        return '{0} {1} vs {2}'.format(self.season.year, self.host.name,self.guest.name)
+
+class Start_Status:
+    STARTER = 'Y'
+    SUBSTITUTES = 'S'
+    NOT_PLAY = 'NP'
+    
+    STATUS = (
+        (STARTER, _('Starter')),
+        (SUBSTITUTES, _('Substitutes')),
+        (NOT_PLAY, _('Not Play')),
+    )
+    
+class PlayerGameScore(models.Model):
+    id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key",
+                 default=uuid.uuid4)
+    
+    player = models.ForeignKey(Player, null=True, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, null=True, on_delete=models.CASCADE)
+    
+    starters = models.CharField(max_length=2,
+                                      choices=Start_Status.STATUS,
+                                      default='S')
+                                      
+    personal_foul = models.IntegerField(default=0, blank=True, null=True)
+    free_throw = models.IntegerField(default=0)
+    field_goal = models.IntegerField(default=0)
+    three_point = models.IntegerField(default=0)
+    
+    created_at = models.DateTimeField(auto_now_add=True, editable = True)
+    
+    def total_points(self):
+        return self.free_throw + self.field_goal + self.three_point
+        
+    class Meta:
+        db_table = 'palyer_game_score'
+        ordering = ['player__number']

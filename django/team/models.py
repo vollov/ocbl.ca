@@ -58,6 +58,14 @@ class Player(AbstractPlayer):
 	def save(self):
 		player = super(Player, self).save()
 	
+# 	def __unicode__(self):
+# 		user = self.user_profile.user
+# 		return u''.join((user.last_name,' ',user.first_name )).encode('utf-8').strip()
+	
+	def __unicode__(self):
+		user = self.user_profile.user
+		return user.last_name + ' ' +user.first_name 
+	
 class PlayerHistory(AbstractTeam):
 	year = models.CharField(max_length=4, blank=False, null=False)
 	team_history = models.ForeignKey(TeamHistory)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from game.models import Season, Game, Referee, Recorder, Timer
+from game.models import Season, Game, Referee, Recorder, Timer, PlayerGameScore
 
 class SeasonAdmin(admin.ModelAdmin):
     model = Season
@@ -29,3 +29,13 @@ admin.site.register(Game, GameAdmin)
 admin.site.register(Referee, RefereeAdmin)
 admin.site.register(Recorder, RecorderAdmin)
 admin.site.register(Timer, TimerAdmin)
+
+class PlayerGameScoreAdmin(admin.ModelAdmin):
+    def total_points(self, obj):
+        return obj.total_points()
+    
+    model = PlayerGameScore
+    list_display = ['player', 'starters', 'personal_foul', 'free_throw', 'field_goal', 'three_point', 'total_points']
+    list_filter = ['game',]
+    
+admin.site.register(PlayerGameScore, PlayerGameScoreAdmin)

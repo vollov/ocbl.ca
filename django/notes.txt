@@ -145,3 +145,4 @@ class UserForm(RegistrationFormUniqueEmail, RegistrationFormTermsOfService ):
         model = User
         fields = ('username', 'email')
     
+    
