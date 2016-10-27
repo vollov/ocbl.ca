@@ -132,8 +132,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-#RESOURCE_ROOT='/opt/var/www/ocbl/'
-RESOURCE_ROOT='c:/opt/var/www/ocbl/'
+RESOURCE_ROOT='/opt/www/ocbl/'
+#RESOURCE_ROOT='c:/opt/var/www/ocbl/'
 
 LOGGING = {
     'version': 1,
