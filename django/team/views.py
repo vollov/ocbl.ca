@@ -1,5 +1,5 @@
 from __builtin__ import False
-import logging
+
 from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -11,6 +11,7 @@ from accounts.models import UserProfile
 from team.forms import EnrollForm, PlayerForm
 from team.models import Player, Team
 
+import logging
 logger = logging.getLogger(__name__)
 
 def team_detail(request, team_id):
