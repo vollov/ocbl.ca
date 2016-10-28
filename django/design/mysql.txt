@@ -1,0 +1,1 @@
+ mysqldump -uroot -p  --no-create-info  --no-create-db  --databases  ocbl_backup > ocbl_data.sql
