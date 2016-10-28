@@ -63,3 +63,30 @@ def games(request):
         'season': season.name 
     }
     return render(request,'games.html', context)
+
+def game_photo(request, game_id):
+    """Display game photoes by game id"""
+    
+    context = {
+        'page_title': _('game_photo'), 
+    }
+    return render(request,'photos.html', context)
+
+    
+def photographs(request):
+    """List game photos for season in current year"""
+    time_now = datetime.datetime.now()
+    current_year = time_now.year
+    
+    season = Season.objects.get(year=current_year)
+    games = Game.objects.filter(season__id = season.id)
+    # current_game = games[0]
+    # pick up first game in current season
+    
+    
+    context = {
+        'page_title': _('photographs'),
+        'season': season.name 
+    }
+    return render(request,'photos.html', context)
+

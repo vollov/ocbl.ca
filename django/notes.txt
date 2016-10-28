@@ -145,4 +145,48 @@ class UserForm(RegistrationFormUniqueEmail, RegistrationFormTermsOfService ):
         model = User
         fields = ('username', 'email')
     
-    
+=============================================================
+
+<ul class="list-group">
+	{% for key, game in game_dict.items %}
+  <li class="list-group-item">{% trans "time" %} : {{game.date}} {{game.time}} ({% trans "address" %} : {{game.address}})
+  	<div class="row">
+  		<div class="col-xs-8 col-md-8">
+	  		<div class="col-xs-6 col-md-6">
+	  			{% trans "teams" %} : {{game.teams}}
+	  		</div>
+	  		<div class="col-xs-6 col-md-6">
+	 			{% trans "status" %} : {{game.status}}
+	  		</div>
+	  		
+	  		<div class="col-xs-6 col-md-6">
+	 			{% trans "master_referee" %} : {{game.master_referee}}
+	  		</div>
+	  		
+	  		<div class="col-xs-6 col-md-6">
+	  			{% trans "secondary_referee" %} : {{game.secondary_referee}}
+	  		</div>
+	  		<div class="col-xs-6 col-md-6">
+	 			{% trans "recorder" %} : {{game.recorder}}
+	  		</div>
+	  		
+	  		<div class="col-xs-6 col-md-6">
+	 			{% trans "timer" %} : {{game.timer}}
+	  		</div>
+  		</div>
+  		<div class="col-xs-4 col-md-4">
+  			<div class="col-xs-6 col-md-6">
+	 			
+	  		</div>
+	  		<div class="col-xs-6 col-md-6">
+	 			
+	  		</div>
+	  		<div class="col-xs-6 col-md-6">
+	 			<a class="btn btn-success" href="/game/{{game.id}}" role="button">{% trans "game_details" %} &raquo;</a>
+	  		</div>
+  			
+  		</div>
+  	</div>
+  </li>
+  {% endfor %} 
+</ul>

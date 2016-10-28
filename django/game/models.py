@@ -39,6 +39,8 @@ class Season(models.Model):
     def __unicode__(self):
         return self.name
     
+from content.models import Album
+
 class Game(models.Model):
     id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
     season = models.ForeignKey(Season)
@@ -56,9 +58,14 @@ class Game(models.Model):
     recorder=models.ForeignKey(Recorder, null=True)
     timer= models.ForeignKey(Timer, null=True)
     
+    album = models.ForeignKey(Album)
+    
     def __unicode__(self):
         return '{0} {1} vs {2}'.format(self.season.year, self.host.name,self.guest.name)
 
+    def name(self):
+        return '{0} vs {1}'.format(self.host.name,self.guest.name)
+    
 class Start_Status:
     STARTER = 'Y'
     SUBSTITUTES = 'S'

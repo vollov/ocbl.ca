@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% block title %} - {{ page_title }} {% endblock %} 
+
+{% load staticfiles %} 
+
+{% block content %} 
+{% load i18n %}
+
+<hr class="featurette-divider">
+
+<div class="row">
+	<div class="col-xs-2 col-md-2">
+		<div class="list-group">
+			<a href="#" class="list-group-item active"> {% trans "past_games" %} </a> 
+			<a href="#" class="list-group-item"> 2016 </a>
+			<a href="#" class="list-group-item"> 2017 </a>
+			<a href="#" class="list-group-item"> 2018 </a>
+			<a href="#" class="list-group-item"> 2019 </a>
+		</div>
+	</div>
+
+	<div class="col-xs-10 col-md-10">
+	
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="/team/captain/{{user_id}}"
+						class="btn btn-success navbar-btn"> Back </a>
+					
+					{% for game in game_dict.items %}
+					<a href="/game/{{game.id}}/photo"
+						class="btn btn-success navbar-btn"> {{game.name}} </a>
+					{% endfor %} 
+				</div>
+			</div>
+		</nav>
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{game.year}} {{game.name}}</h3>
+			</div>
+			<div class="panel-body">	
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+{% endblock %}
