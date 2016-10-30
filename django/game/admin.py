@@ -9,8 +9,10 @@ class SeasonAdmin(admin.ModelAdmin):
 
 class GameAdmin(admin.ModelAdmin):
     model = Game
-    list_filter = ['season', 'host', 'guest']
+    list_filter = ['season', 'host', 'guest','start_time']
     list_display = ['season','host','guest','start_time', 'address']
+    
+    ordering = ('-start_time',)
 
 class RefereeAdmin(admin.ModelAdmin):
     model = Season
