@@ -58,7 +58,7 @@ class Game(models.Model):
     recorder=models.ForeignKey(Recorder, null=True)
     timer= models.ForeignKey(Timer, null=True)
     
-    album = models.ForeignKey(Album)
+    album = models.ForeignKey(Album, null=True)
     
     def __unicode__(self):
         return '{0} {1} vs {2}'.format(self.season.year, self.host.name,self.guest.name)

@@ -66,11 +66,22 @@ def games(request):
     }
     return render(request,'games.html', context)
 
-def game_photo(request, game_id):
+def game_photo(request, album_slug):
     """Display game photoes by game id"""
     
+    time_now = datetime.datetime.now()
+    current_year = time_now.year
+    
+    season = Season.objects.get(year=current_year)
+    games = Game.objects.filter(season__id = season.id).exclude(album__isnull=True)
+    
+    photos = GamePhotoHelper.get_photos(album_slug)
+    
     context = {
-        'page_title': _('game_photo'), 
+        'page_title': _('game_photo'),
+        'game_dict': GamePhotoHelper.get_games(games),
+        'photos':photos,
+        'season': season.name,
     }
     return render(request,'photos.html', context)
 
@@ -81,17 +92,23 @@ def photographs(request):
     current_year = time_now.year
     
     season = Season.objects.get(year=current_year)
-    games = Game.objects.filter(season__id = season.id)
-    current_game = games[0]
-    # pick up first game in current season
-    current_album_id = current_game.album.id
-    photos = Image.objects.filter(active = True, album__id= current_album_id).order_by('weight')
-    
+    # filter out albumn with no photos
+    games = Game.objects.filter(season__id = season.id).exclude(album__isnull=True)
+    if games: 
+        game_dict = GamePhotoHelper.get_games(games)
+        current_game = games[0]
+        # pick up first game in current season
+        photos = GamePhotoHelper.get_photos(current_game.album.slug)
+    else:
+        # do empty view
+        game_dict = {}
+        photos = []
+        
     context = {
         'page_title': _('photographs'),
-        'game_dict': GamePhotoHelper.get_games(games),
-        'photos':photos,
-        'season': season.name 
+        'game_dict': game_dict,
+        'photos': photos,
+        'season': season.name,
     }
     return render(request,'photos.html', context)
 

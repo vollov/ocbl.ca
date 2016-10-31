@@ -1,12 +1,18 @@
+from content.models import Image
+
 class GamePhotoHelper:
     """Helper classs to prepare Game photo view data"""
     
     def __init__(self):
         pass
     
-    def get_albums(self):
-        """Get album for a view"""
-    
+    @classmethod
+    def get_photos(self, album_slug):
+        """Get photos by slug for a view"""
+        photos = Image.objects.filter(active = True, album__slug= album_slug).order_by('weight')
+        return photos
+        
+    @classmethod
     def get_games(self, games):
         """Prepare games object for display photos"""
         game_dict = {}
