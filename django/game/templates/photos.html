@@ -24,11 +24,8 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="/team/captain/{{user_id}}"
-						class="btn btn-success navbar-btn"> Back </a>
-					
-					{% for game in game_dict.items %}
-					<a href="/game/{{game.id}}/photo"
+					{% for key, game in game_dict.items %}
+					<a href="/game/{{game.album_slug}}/photo"
 						class="btn btn-success navbar-btn"> {{game.name}} </a>
 					{% endfor %} 
 				</div>

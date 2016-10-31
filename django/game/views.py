@@ -3,7 +3,9 @@ from django.utils.translation import ugettext as _
 
 import datetime
 
-from game.models import Season, Game, PlayerGameScore
+from models import Season, Game, PlayerGameScore
+from service import GamePhotoHelper
+from content.models import Image
 
 def game_score(request, game_id):
     """Print score detail"""
@@ -80,12 +82,15 @@ def photographs(request):
     
     season = Season.objects.get(year=current_year)
     games = Game.objects.filter(season__id = season.id)
-    # current_game = games[0]
+    current_game = games[0]
     # pick up first game in current season
-    
+    current_album_id = current_game.album.id
+    photos = Image.objects.filter(active = True, album__id= current_album_id).order_by('weight')
     
     context = {
         'page_title': _('photographs'),
+        'game_dict': GamePhotoHelper.get_games(games),
+        'photos':photos,
         'season': season.name 
     }
     return render(request,'photos.html', context)

@@ -118,6 +118,7 @@ class Image(models.Model):
     image = models.ImageField(storage=OverwriteStorage(), upload_to=image_upload_path)
     created = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
+    weight = models.IntegerField(default=0)
     
     def image_thumb(self):
         """read only field for display in administration UI"""

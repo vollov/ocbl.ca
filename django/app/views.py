@@ -71,8 +71,6 @@ def contacts(request):
     }
     return render(request,'contacts.html', context)
 
-
-
 @login_required
 def profile(request):
     """
