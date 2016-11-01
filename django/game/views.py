@@ -75,6 +75,13 @@ def game_photo(request, album_slug):
     season = Season.objects.get(year=current_year)
     games = Game.objects.filter(season__id = season.id).exclude(album__isnull=True)
     
+    game = Game.objects.get(album__slug=album_slug)
+    thumbnails = game.album.image_set.filter(is_thumbnail=True)
+    if thumbnails:
+        game.thumbnail = thumbnails[0]
+    else:
+        game.thumbnail = 'na.jpg'
+    
     photos = GamePhotoHelper.get_photos(album_slug)
     
     context = {
