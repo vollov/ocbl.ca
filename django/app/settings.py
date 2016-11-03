@@ -171,6 +171,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'team': {
+            'handlers': ['debug.logfile', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'app': {
             'handlers': ['debug.logfile', 'console'],
             'level': 'DEBUG',

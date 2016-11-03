@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^captcha/', include('captcha.urls')),
 ]
 
+handler403 = 'app.views.permission_denied_view'
 
 # settings for development environment DEBUG
 from django.conf.urls.static import static

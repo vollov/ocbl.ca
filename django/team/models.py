@@ -40,6 +40,10 @@ class AbstractPlayer(models.Model):
 	def __unicode__(self):
 		return self.user_profile.user.username
 
+	def is_captain(self):
+		user = self.user_profile.user
+		return user.groups.filter(name='captain').exists()
+		
 	class Meta:
 		abstract = True
 	

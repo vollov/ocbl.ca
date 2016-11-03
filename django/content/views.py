@@ -9,8 +9,15 @@ def upload_photo(request):
             handle_uploaded_file(request.FILES['file'])
             return HttpResponseRedirect('/success/url/')
     else:
-        form = UploadFileForm()
-    return render(request, 'upload.html', {'form': form})
+        photo_form = UploadFileForm()
+        page_title = 'File Upload'
+        context = {
+            'photo_form': photo_form,
+            'page_title': page_title,
+        }
+        
+        
+    return render(request, 'upload.html', context)
 
 def handle_uploaded_file(file):
     print file.name

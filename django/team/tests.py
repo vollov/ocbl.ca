@@ -34,7 +34,7 @@ class TestEnrollForm(TestCase):
 ###############################################
 ## test profile views 
 ###############################################
-from team.views import ProfileService
+from team.service import ProfileService
 from team.models import Player
 class TestProfileService(TestCase):
     fixtures = ['auth_all.json', 'accounts_all.json','team_all.json']

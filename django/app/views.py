@@ -2,13 +2,12 @@ from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 
-from team.models import Player
-from team.views import ProfileService
+from team.service import ProfileService
 from content.models import Block
 
 from django.utils.translation import ugettext as _
 from django.utils.translation import get_language
-from django.urls import resolve
+
 
 import logging
 logger = logging.getLogger(__name__)
@@ -80,3 +79,6 @@ def profile(request):
     user_id = request.session['user_id']
     service = ProfileService(user_id)
     return HttpResponseRedirect(service.getProfile())
+
+def permission_denied_view(request):
+    return render(request,'403.html', status=403)
