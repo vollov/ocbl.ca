@@ -7,7 +7,7 @@ def upload_photo(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
+            return HttpResponseRedirect('/game/photos/')
     else:
         photo_form = UploadFileForm()
         page_title = 'File Upload'

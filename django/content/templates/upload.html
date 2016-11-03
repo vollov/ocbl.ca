@@ -3,7 +3,7 @@
 {% block title %} - {{ page_title }} {% endblock %} 
 {% block content %}
 <h2>{% trans "photo_upload"%}</h2>
-		<form id="user_form" method="post" action="/content/upload/"
+		<form id="photo_form" method="post" action="/content/upload/"
                 enctype="multipart/form-data">
 
             {% csrf_token %}

@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
     url(r'^team/', include('team.urls')),
     url(r'^game/', include('game.urls')),
+    url(r'^content/', include('content.urls')),
     url(r'^captcha/', include('captcha.urls')),
 ]
 
