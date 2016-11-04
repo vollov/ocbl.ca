@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^game/', include('game.urls')),
     url(r'^content/', include('content.urls')),
     url(r'^captcha/', include('captcha.urls')),
-]
+] 
 
 handler403 = 'app.views.permission_denied_view'
 
@@ -45,7 +45,7 @@ from django.conf import settings
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
- 
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # if settings.DEBUG:
 #     urlpatterns += [
 #         url((r'^media/(?P<path>.*)','django.views.static', {'document_root': settings.MEDIA_ROOT}),'serve')

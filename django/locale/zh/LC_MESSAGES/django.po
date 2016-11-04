@@ -160,7 +160,7 @@ msgid "game_details"
 msgstr "得分统计"
 
 #: .\game\templates\photos.html:33
-msgid "no_game_album"
+msgid "no_game_albumn"
 msgstr "无图片"
 
 #: .\game\views.py:21 .\game\views.py:63 .\templates\base.html:58

@@ -7,9 +7,9 @@ class GamePhotoHelper:
         pass
     
     @classmethod
-    def get_photos(self, album_slug):
+    def get_photos(self, albumn_slug):
         """Get photos by slug for a view"""
-        photos = Image.objects.filter(active = True, album__slug= album_slug).order_by('weight')
+        photos = Image.objects.filter(active = True, albumn__slug= albumn_slug).order_by('weight')
         return photos
         
     @classmethod
@@ -23,8 +23,8 @@ class GamePhotoHelper:
             
             g['id'] = game.id
             g['name'] = game.name()
-            # album with slug: /album/album-slug
-            g['album_slug'] = game.album.slug
+            # albumn with slug: /albumn/albumn-slug
+            g['albumn_slug'] = game.albumn.slug
             
             game_dict[i] = g
             i+=1

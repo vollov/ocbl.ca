@@ -67,7 +67,7 @@ class SystemSetting(models.Model):
 #######################################################################
 # image module
 #######################################################################
-class Album(models.Model):
+class Albumn(models.Model):
     """
     container for a set of pictures
     """
@@ -80,16 +80,16 @@ class Album(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Create a album folder in settings.MEDIA_ROOT, before save 
-        a new album into database.
+        Create a albumn folder in settings.MEDIA_ROOT, before save 
+        a new albumn into database.
         """
-        logger.debug('album model save {0}'.format(__name__))
+        logger.debug('albumn model save {0}'.format(__name__))
         
         album_directory = os.path.join(settings.MEDIA_ROOT, self.slug)
         if not os.path.exists(album_directory):
             os.makedirs(album_directory)
 
-        super(Album, self).save(*args, **kwargs)
+        super(Albumn, self).save(*args, **kwargs)
         
     def __unicode__(self):
         return self.name
@@ -100,11 +100,11 @@ def image_upload_path(instance, filename):
     ''' 
     build image upload path
     e.g.
-    upload_path = album_name/f47ac10b-58cc-4372-a567-0e02b2c3d479.jpg
+    upload_path = album_slug/f47ac10b-58cc-4372-a567-0e02b2c3d479.jpg
     '''
     file_extension = filename.split('.')[-1]
     saved_name = "{}.{}".format(instance.image_key, file_extension)
-    return os.path.join(str(instance.album), saved_name)
+    return os.path.join(str(instance.albumn.slug), saved_name)
 
 class Image(models.Model):
     """
@@ -114,7 +114,7 @@ class Image(models.Model):
     #f47ac10b-58cc-4372-a567-0e02b2c3d479.jpg
     image_key = models.CharField(max_length=64, verbose_name=u"Activation key",
                  default=uuid.uuid4)
-    album = models.ForeignKey('Album')
+    albumn = models.ForeignKey('Albumn')
     image = models.ImageField(storage=OverwriteStorage(), upload_to=image_upload_path)
     created = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
@@ -134,15 +134,15 @@ from django.db.models.signals import pre_delete, pre_save, post_delete
 from django.dispatch.dispatcher import receiver
 
 import shutil
-@receiver(post_delete, sender=Album)
+@receiver(post_delete, sender=Albumn)
 def auto_delete_album_on_delete(sender, instance, **kwargs):
     """Deletes file from filesystem
     when corresponding Album object is deleted.
     """
-    album_directory = os.path.join(settings.MEDIA_ROOT, instance.slug)
-    if os.path.exists(album_directory):
-        logger.debug('album on delete trigger delete folder {0}'.format(album_directory))
-        shutil.rmtree(album_directory)
+    albumn_directory = os.path.join(settings.MEDIA_ROOT, instance.slug)
+    if os.path.exists(albumn_directory):
+        logger.debug('albumn on delete trigger delete folder {0}'.format(albumn_directory))
+        shutil.rmtree(albumn_directory)
     
 @receiver(pre_delete, sender=Image)
 def auto_delete_image_on_delete(sender, instance, **kwargs):
