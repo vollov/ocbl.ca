@@ -93,6 +93,7 @@ def game_photo(request, albumn_slug):
         'page_title': _('game_photo'),
         'game_dict': GamePhotoHelper.get_games(games),
         'photos':photos,
+        'albumn_slug':albumn_slug,
         'season': season.name,
     }
     return render(request,'photos.html', context)
