@@ -167,7 +167,7 @@ LOGGING = {
     },
     'loggers': {
         'accounts': {
-            'handlers': ['debug.logfile', 'console'],
+            'handlers': ['console','debug.logfile'],
             'level': 'DEBUG',
             'propagate': True,
         },

@@ -12,3 +12,5 @@ captain profile [/team/captain/P<id>]
  -- enroll team [/team/player/P<user_id>/enroll]
  
  image size: 284x189
+ 
+ 
