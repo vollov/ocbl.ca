@@ -10,13 +10,23 @@ class TeamAdmin(admin.ModelAdmin):
         return mun_of_match > 0
     
     def archive(self, request, queryset):
+        """
+        to archive team, do:
+        
+        1) create a team history, with team, year, name and city
+        2) add a referenece for the captain
+        3) add all players to player history table, with player, year, team_history
+        """
         rows_updated = 0
         for team in queryset:
             year = datetime.now().year
 
             if not self.is_archived(team, year):
                 teamHistory = TeamHistory(team=team, year=year, name=team.name, city=team.city)
+                teamHistory.captain = team.captain
                 teamHistory.save()
+                
+                
                 rows_updated += 1
             else:
                 print 'team name={0}, year={1} already enrolled.'.format(team, year)
@@ -28,6 +38,14 @@ class TeamAdmin(admin.ModelAdmin):
         self.message_user(request, "%s successfully enrolled." % message_bit)
     
     archive.short_description = "Archive team"
+    
+    def archivePlayers(self, team_history):
+        """
+        Loop through all active players in a team and save history, fields
+        id, user_profile, year, team_history
+        """
+        
+    
     
     def activate(self, request, queryset):
         rows_updated = queryset.update(active=True)

@@ -10,7 +10,8 @@ class AbstractTeam(models.Model):
 	id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
 	name = models.CharField(max_length=32, blank=True, null=True)
 	city = models.CharField(max_length=32, blank=True, null=True)
-
+	captain = models.ForeignKey(User, null=True)
+	
 	def __unicode__(self):
 		return self.name
 
@@ -28,7 +29,7 @@ class Team(AbstractTeam):
 class TeamHistory(AbstractTeam):
 	team = models.ForeignKey(Team)
 	year = models.CharField(max_length=4, blank=False, null=False)
-	captain = models.ForeignKey(User, null=True)
+	
 	class Meta:
 		ordering = ['-pk']
 
@@ -81,7 +82,7 @@ class Player(AbstractPlayer):
 	class Meta:
 		ordering = ('number',)
 
-class PlayerHistory(AbstractTeam):
+class PlayerHistory(AbstractPlayer):
 	year = models.CharField(max_length=4, blank=False, null=False)
 	team_history = models.ForeignKey(TeamHistory)
 	
