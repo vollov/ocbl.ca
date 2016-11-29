@@ -3,18 +3,19 @@
 
 {% block content %}
 
+{% load i18n %}
+
 <div class="panel">
 
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a href="/team/{{captain.team.id}}/manage" class="btn btn-success navbar-btn"> Manage
-					Players </a> 
-				<a href="/team/captain/{{captain.id}}/edit"
-					class="btn btn-success navbar-btn"> Edit profile </a>
+				<a href="/team/{{captain.team.id}}/manage" class="btn btn-success navbar-btn"> {% trans "manage_players" %}  </a> 
+				<a href="/team/player/{{captain.user_profile.user.id}}/edit"
+					class="btn btn-success navbar-btn"> {% trans "manage_profile" %} </a>
 					
 				<a href="/content/upload"
-					class="btn btn-success navbar-btn"> Upload </a>
+					class="btn btn-success navbar-btn"> {% trans "upload_picture" %} </a>
 					
 				<p class="navbar-text">{{user_profile.user.last_name}} {{user_profile.user.first_name}} (Captain)</p>
 			</div>

@@ -194,6 +194,10 @@ def captain_profile(request, user_id):
     return render(request, 'captain_profile.html', context)
 
 @login_required
+def player_edit(request, user_id):
+    pass
+    
+@login_required
 def team_manage(request, team_id):
     """captain profile - HTTP GET /team/@team_id/manage
     Role = [captain]
@@ -204,7 +208,7 @@ def team_manage(request, team_id):
     user_id = request.session['user_id']
     captain = Player.objects.get(user_profile__user__id=user_id)
 
-    if captain.team.id != long(team_id):
+    if captain.team.id != team_id:
         raise PermissionDenied
     
     current_team = Team.objects.get(id=team_id)

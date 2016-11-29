@@ -1,0 +1,3 @@
+					{% if user.is_authenticated %}
+					<li><a href="/profile">{% trans "profile" %}</a></li>
+					{% endif %}
