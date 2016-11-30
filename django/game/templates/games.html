@@ -11,66 +11,65 @@
 <div class="row">
 	<div class="col-xs-2 col-md-2">
 		<div class="list-group">
-			<a href="#" class="list-group-item active"> {% trans "past_games" %} </a> 
-			<a href="#" class="list-group-item"> 2016 </a>
-			<a href="#" class="list-group-item"> 2017 </a>
-			<a href="#" class="list-group-item"> 2018 </a>
-			<a href="#" class="list-group-item"> 2019 </a>
+			<a href="#" class="list-group-item active"> {% trans "past_games" %} </a>
+			{% for s in seasons %}
+			<a href="/game/{{ s.year }}/" class="list-group-item"> {{ s.year }} </a>
+			{% endfor %} 
 		</div>
 	</div>
 
 	<div class="col-xs-10 col-md-10">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">{{ season }}</h3>
+				<h3 class="panel-title">{{ season.name }}</h3>
 			</div>
 			<div class="panel-body">
-
-					
-
-<ul class="list-group">
-	{% for key, game in game_dict.items %}
-  <li class="list-group-item">{% trans "time" %} : {{game.date}} {{game.time}} ({% trans "address" %} : {{game.address}})
-  	<div class="row">
-  		<div class="col-xs-8 col-md-8">
-	  		<div class="col-xs-6 col-md-6">
-	  			{% trans "teams" %} : {{game.teams}}
-	  		</div>
-	  		<div class="col-xs-6 col-md-6">
-	 			{% trans "status" %} : {{game.status}}
-	  		</div>
-	  		
-	  		<div class="col-xs-6 col-md-6">
-	 			{% trans "master_referee" %} : {{game.master_referee}}
-	  		</div>
-	  		
-	  		<div class="col-xs-6 col-md-6">
-	  			{% trans "secondary_referee" %} : {{game.secondary_referee}}
-	  		</div>
-	  		<div class="col-xs-6 col-md-6">
-	 			{% trans "recorder" %} : {{game.recorder}}
-	  		</div>
-	  		
-	  		<div class="col-xs-6 col-md-6">
-	 			{% trans "timer" %} : {{game.timer}}
-	  		</div>
-  		</div>
-  		<div class="col-xs-4 col-md-4">
-  			<div class="col-xs-6 col-md-6">
-	 			
-	  		</div>
-	  		<div class="col-xs-6 col-md-6">
-	 			
-	  		</div>
-	  		<div class="col-xs-6 col-md-6">
-	 			<a class="btn btn-success" href="/game/score/{{game.id}}" role="button">{% trans "game_details" %} &raquo;</a>
-	  		</div>
-  			
-  		</div>
-  	</div>
-  </li>
-  {% endfor %} 
-</ul>
+			
+				<a class="btn btn-success" href="/game/stat/{{ season.year}}" role="button">{% trans "stats" %} &raquo;</a>
+				
+				<ul class="list-group">
+					{% for key, game in game_dict.items %}
+				  <li class="list-group-item">{% trans "time" %} : {{game.date}} {{game.time}} ({% trans "address" %} : {{game.address}})
+				  	<div class="row">
+				  		<div class="col-xs-8 col-md-8">
+					  		<div class="col-xs-6 col-md-6">
+					  			{% trans "teams" %} : {{game.teams}}
+					  		</div>
+					  		<div class="col-xs-6 col-md-6">
+					 			{% trans "status" %} : {{game.status}}
+					  		</div>
+					  		
+					  		<div class="col-xs-6 col-md-6">
+					 			{% trans "master_referee" %} : {{game.master_referee}}
+					  		</div>
+					  		
+					  		<div class="col-xs-6 col-md-6">
+					  			{% trans "secondary_referee" %} : {{game.secondary_referee}}
+					  		</div>
+					  		<div class="col-xs-6 col-md-6">
+					 			{% trans "recorder" %} : {{game.recorder}}
+					  		</div>
+					  		
+					  		<div class="col-xs-6 col-md-6">
+					 			{% trans "timer" %} : {{game.timer}}
+					  		</div>
+				  		</div>
+				  		<div class="col-xs-4 col-md-4">
+				  			<div class="col-xs-6 col-md-6">
+					 			
+					  		</div>
+					  		<div class="col-xs-6 col-md-6">
+					 			
+					  		</div>
+					  		<div class="col-xs-6 col-md-6">
+					 			<a class="btn btn-success" href="/game/score/{{game.id}}" role="button">{% trans "game_details" %} &raquo;</a>
+					  		</div>
+				  			
+				  		</div>
+				  	</div>
+				  </li>
+				  {% endfor %} 
+				</ul>
 
 			</div>
 		</div>

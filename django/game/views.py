@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
+from django.db.models import Avg, Sum
 
 import datetime
 
 from models import Season, Game, PlayerGameScore
+from team.models import Player
 from service import GamePhotoHelper
 from content.models import Image
 
@@ -30,15 +32,65 @@ def game_score(request, game_id):
     }
     return render(request,'game_score.html', context)
     
+def season_stat(request, year):
+    """
+    Listing players by ranking
+          <th>#</th>
+          <th>Player</th>
+          <th>Number</th>
+          <th>Team</th>
+          <th>personal foul</th>
+          <th>free throw</th>
+          <th>field goal</th>
+          <th>three_point</th>
+          <th>total_points</th>
+          
+    personal_foul = models.IntegerField(default=0, blank=True, null=True)
+    free_throw = models.IntegerField(default=0)
+    field_goal = models.IntegerField(default=0)
+    three_point = models.IntegerField(default=0)
+    """
+    season = Season.objects.get(year=year)
+    scores = PlayerGameScore.objects.filter(game__season__id=season.id).values('player').annotate(
+                                    personal_foul_sum=Sum('personal_foul'),
+                                    free_throw_sum=Sum('free_throw'),
+                                    field_goal_sum=Sum('field_goal'),
+                                    three_point_sum=Sum('three_point'),)
     
-def games(request):
-    """List games for current year"""
+    stat_list = []
     
-    time_now = datetime.datetime.now()
-    current_year = time_now.year
+    for score in scores:
+        s = {}
+        player_id = score['player']
+
+        player = Player.objects.get(id=player_id)
+        s['player'] = player.full_name
+        s['number'] = player.number
+        s['team'] = player.team.name
+        s['personal_foul_sum'] = score['personal_foul_sum']
+        s['free_throw_sum'] = score['free_throw_sum']
+        s['field_goal_sum'] = score['field_goal_sum']
+        s['three_point_sum'] = score['three_point_sum']
+        s['total_point_sum'] = score['free_throw_sum'] + score['field_goal_sum'] + score['three_point_sum']
     
-    #season = Entry.objects.all().filter(pub_date__year=2006)
-    season = Season.objects.get(year=current_year)
+        stat_list.append(s)
+        
+        stat_list.sort(key=lambda x: x['total_point_sum'], reverse=True)
+        
+    #print scores.query.__str__()
+    context = {
+        'page_title': _('stats'),
+        'stat_list':stat_list,
+    }
+    return render(request,'season_stats.html', context)
+    
+    
+    
+def games_by_year(request, year):
+    
+    seasons = Season.objects.all()
+    
+    season = Season.objects.get(year=year)
     games = Game.objects.filter(season=season).order_by('start_time','id') 
     
     game_dict = {}
@@ -65,9 +117,21 @@ def games(request):
     context = {
         'page_title': _('games'),
         'game_dict':game_dict,
-        'season': season.name 
+        'season': season,
+        'seasons':seasons
     }
     return render(request,'games.html', context)
+    
+    
+def games(request):
+    """List games for current year"""
+    
+    time_now = datetime.datetime.now()
+    current_year = time_now.year
+    
+    return games_by_year(request, current_year)
+    #season = Entry.objects.all().filter(pub_date__year=2006)
+    
 
 def game_photo(request, albumn_slug):
     """Display game photoes by game id"""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 03:38+0000\n"
+"POT-Creation-Date: 2016-11-30 04:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,40 +134,44 @@ msgstr "客队"
 msgid "past_games"
 msgstr "历届比赛"
 
-#: game/templates/games.html:33 notes.txt:27 notes.txt:157
+#: game/templates/games.html:28 game/views.py:82
+msgid "stats"
+msgstr "赛季得分排名"
+
+#: game/templates/games.html:32 notes.txt:27 notes.txt:157
 msgid "time"
 msgstr "时间"
 
-#: game/templates/games.html:33 notes.txt:30 notes.txt:157
+#: game/templates/games.html:32 notes.txt:30 notes.txt:157
 msgid "address"
 msgstr "赛场地址"
 
-#: game/templates/games.html:37 notes.txt:25 notes.txt:161
+#: game/templates/games.html:36 notes.txt:25 notes.txt:161
 #: team/templates/teams.html:13 team/views.py:46 templates/base.html:57
 msgid "teams"
 msgstr "球队"
 
-#: game/templates/games.html:40 notes.txt:31 notes.txt:164
+#: game/templates/games.html:39 notes.txt:31 notes.txt:164
 msgid "status"
 msgstr "比赛结果"
 
-#: game/templates/games.html:44 notes.txt:28 notes.txt:168
+#: game/templates/games.html:43 notes.txt:28 notes.txt:168
 msgid "master_referee"
 msgstr "主裁判"
 
-#: game/templates/games.html:48 notes.txt:29 notes.txt:172
+#: game/templates/games.html:47 notes.txt:29 notes.txt:172
 msgid "secondary_referee"
 msgstr "副裁判"
 
-#: game/templates/games.html:51 notes.txt:175
+#: game/templates/games.html:50 notes.txt:175
 msgid "recorder"
 msgstr "记分员"
 
-#: game/templates/games.html:55 notes.txt:179
+#: game/templates/games.html:54 notes.txt:179
 msgid "timer"
 msgstr "记时员"
 
-#: game/templates/games.html:66 notes.txt:190
+#: game/templates/games.html:65 notes.txt:190
 msgid "game_details"
 msgstr "得分统计"
 
@@ -175,19 +179,19 @@ msgstr "得分统计"
 msgid "no_game_albumn"
 msgstr "无图片"
 
-#: game/views.py:24 game/views.py:66 templates/base.html:58
+#: game/views.py:26 game/views.py:118 templates/base.html:58
 msgid "games"
 msgstr "比赛"
 
-#: game/views.py:56
+#: game/views.py:108
 msgid "future_game"
 msgstr "未来比赛"
 
-#: game/views.py:93
+#: game/views.py:157
 msgid "game_photo"
 msgstr "比赛照片"
 
-#: game/views.py:121 templates/base.html:59
+#: game/views.py:185 templates/base.html:59
 msgid "photographs"
 msgstr "比赛集锦"
 

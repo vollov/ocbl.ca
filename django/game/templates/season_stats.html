@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% block title %} - {{ page_title }} {% endblock %} 
+
+{% block content %}
+{% load i18n %}
+<div class="panel">
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="/game"
+					class="btn btn-success navbar-btn"> Back </a>
+				
+				<p class="navbar-text"> Stats </p>
+			</div>
+		</div>
+	</nav>
+
+<h3>Stats</h3>
+<table class="table table-bordered table-hover table-striped table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Number</th>
+          <th>Team</th>
+          <th>personal foul</th>
+          <th>free throw</th>
+          <th>field goal</th>
+          <th>three_point</th>
+          <th>total_points</th>
+        </tr>
+      </thead>
+      <tbody>
+
+		{% for hs in stat_list %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          
+          <td>{{hs.player}}</td>
+          <td>{{hs.number}}</td>
+          <td>{{hs.team}}</td>
+          <td>{{hs.personal_foul_sum}}</td>
+          <td>{{hs.free_throw_sum}}</td>
+          <td>{{hs.field_goal_sum}}</td>
+          <td>{{hs.three_point_sum}}</td>
+          <td>{{hs.total_point_sum}}</td>
+    
+        </tr>
+       {% endfor %} 
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
