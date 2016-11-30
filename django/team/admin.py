@@ -26,7 +26,7 @@ class TeamAdmin(admin.ModelAdmin):
                 teamHistory.captain = team.captain
                 teamHistory.save()
                 
-                
+                self.archivePlayers(teamHistory, year)
                 rows_updated += 1
             else:
                 print 'team name={0}, year={1} already enrolled.'.format(team, year)
@@ -39,12 +39,16 @@ class TeamAdmin(admin.ModelAdmin):
     
     archive.short_description = "Archive team"
     
-    def archivePlayers(self, team_history):
+    def archivePlayers(self, team_history, year):
         """
-        Loop through all active players in a team and save history, fields
-        id, user_profile, year, team_history
+        Loop through all active players in a team and save history, fields:
+        user_profile, year, team_history
         """
+        players = Player.objects.filter(team=team_history.team, active=True)
         
+        for player in players:
+            player_history = PlayerHistory(user_profile=player.user_profile, year = year, team_history=team_history)
+            player_history.save()
     
     
     def activate(self, request, queryset):
@@ -82,7 +86,7 @@ class TeamHistoryAdmin(admin.ModelAdmin):
 admin.site.register(Team, TeamAdmin)
 admin.site.register(TeamHistory, TeamHistoryAdmin)
 
-from team.models import Player
+from team.models import Player, PlayerHistory
 class PlayerAdmin(admin.ModelAdmin):
     model = Player
     
@@ -92,3 +96,9 @@ class PlayerAdmin(admin.ModelAdmin):
     list_display = ['user_profile','team','active', 'number']
 
 admin.site.register(Player, PlayerAdmin)
+
+class PlayerHistoryAdmin(admin.ModelAdmin):
+    list_display = ['team_history','user_profile','year']
+    list_filter = ['year', 'team_history']
+
+admin.site.register(PlayerHistory, PlayerHistoryAdmin)

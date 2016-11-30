@@ -17,7 +17,9 @@ class UserProfile(models.Model):
     
     # Override the __unicode__() method to return out something meaningful!
     def __unicode__(self):
-        return self.user.username
+        user = self.user
+        return user.last_name + ' ' +user.first_name
+
     
     def age(self):
         current_year = date.today().year
