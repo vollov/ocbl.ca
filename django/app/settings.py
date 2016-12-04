@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'team',
     'game',
     'content',
+    'season',
 ]
 
 MIDDLEWARE = [
@@ -118,11 +119,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 #LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'zh'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
   ('zh','Chinese'),
- # ('en','English'),
+  ('en','English'),
 )
 
 TIME_ZONE = 'UTC'

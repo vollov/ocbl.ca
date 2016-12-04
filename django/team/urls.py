@@ -2,6 +2,32 @@ from django.conf.urls import url
 
 from team import views
 
+"""
+URL Map
+
+/team_id/players      [manage player number, active]
+/team_id/events       [team internal meetings]
+/team_id/upload       [upload team picture]
+/team_id/photos       [team photos]
+/team_id/finance      [team expenses]
+/team_name/schedules    [team training session schedule]
+/team_name/school 
+
+[schedule]
+1) season
+team_id
+name
+school
+start_date
+end_date
+address
+
+2) session
+start_time
+end_time
+
+"""
+
 urlpatterns = [
     url(r'^$', views.teams, name='teams'),
     url(r'^enroll/$', views.post_enroll, name='post_enroll'),
