@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'game',
     'content',
     'season',
+    'finance',
 ]
 
 MIDDLEWARE = [
