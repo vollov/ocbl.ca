@@ -17,6 +17,12 @@ http://stackoverflow.com/questions/15519716/django-resize-image-during-upload
 
 </script>
 
+-----------
+				<a href="/team/captain/{{user_id}}"
+					class="btn btn-success navbar-btn"> Back </a>
+				
+				<p class="navbar-text">{{user_profile.user.last_name}} {{user_profile.user.first_name}} (Captain)</p>
+				-------------------
 
 <table class="table table-hover table-striped table-condensed">
       <thead>

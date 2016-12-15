@@ -1,3 +1,32 @@
+Chinese version only:
+
+[1] Home Page
+[2] 比赛规则
+[3] 联赛球队
+
+
+===================
+队长登录菜单
+
+个人信息，球员管理，财务管理，球队公告，队费管理，活动时间
+
+/player/$id/edit
+/team_name/$team_name/players
+/team_name/bookkeeping
+/team_name/announce
+/team_name/fees
+/team_name/schedule
+
+
+/team_id/players      [manage player number, active]
+/team_id/events       [team internal meetings]
+/team_id/upload       [upload team picture]
+/team_id/photos       [team photos]
+/team_id/finance      [team expenses]
+/team_name/schedules    [team training session schedule]
+/team_name/school 
+
+
 
 player profile [/team/player/P<id>]
  -- transfer
@@ -14,3 +43,4 @@ captain profile [/team/captain/P<id>]
  image size: 284x189
  
  
+ team

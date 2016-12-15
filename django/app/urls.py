@@ -18,6 +18,15 @@ from django.contrib import admin
 
 import views
 
+
+# url() is simply a function that returns a django.core.urlresolvers.RegexURLPattern object, 
+# so passing in a name='careers_contact' argument sets name for that object. None of that is 
+# really relevant until this url(...) is placed into a URLconf.
+# 
+# THEN, if we need the URL of a view, we can now get it by passing that name into 
+# {% url 'careers_contact' %} in templates or reverse('careers_contact') in code and on the 
+# backend those functions will use the name to map back to the correct URL.
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     

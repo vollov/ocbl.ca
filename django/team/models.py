@@ -8,7 +8,7 @@ import uuid
 
 class AbstractTeam(models.Model):
 	id = models.CharField(max_length=64, primary_key=True, verbose_name=u"Activation key", default=uuid.uuid4)
-	name = models.CharField(max_length=32, blank=True, null=True)
+	name = models.CharField(max_length=32, unique=True, blank=True, null=True)
 	city = models.CharField(max_length=32, blank=True, null=True)
 	captain = models.ForeignKey(User, null=True)
 	

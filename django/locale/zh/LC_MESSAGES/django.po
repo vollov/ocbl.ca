@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-04 18:05+0000\n"
+"POT-Creation-Date: 2016-12-11 18:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,16 +208,34 @@ msgid "coach"
 msgstr "教练"
 
 #: team/templates/captain_profile.html:13
+#: team/templates/captain_profile.html:26
 msgid "manage_players"
 msgstr "队员管理"
 
 #: team/templates/captain_profile.html:15
+#: team/templates/captain_profile.html:25
 msgid "manage_profile"
 msgstr "个人信息"
 
 #: team/templates/captain_profile.html:18
 msgid "upload_picture"
 msgstr "图片上传"
+
+#: team/templates/captain_profile.html:27
+msgid "team_bookkeeping"
+msgstr "财务管理"
+
+#: team/templates/captain_profile.html:28
+msgid "team_announce"
+msgstr "球队公告"
+
+#: team/templates/captain_profile.html:29
+msgid "team_fees"
+msgstr "队费管理"
+
+#: team/templates/captain_profile.html:30
+msgid "team_schedule"
+msgstr "活动时间"
 
 #: team/templates/teams.html:32
 msgid "number"

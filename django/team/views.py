@@ -16,11 +16,11 @@ from service import TeamHelper
 import logging
 logger = logging.getLogger(__name__)
 
-def team_detail(request, team_id):
+def team_detail(request, name):
     """Show players and captains by team id, show game results
-     - HTTP GET /team/@team_id"""
+     - HTTP GET /team/@team_name"""
     teams = Team.objects.filter(active=True).order_by('name','id')
-    current_team = Team.objects.get(id=team_id)
+    current_team = Team.objects.get(name=name)
     teamHelper = TeamHelper()
     # all active players
     players = Player.objects.filter(team=current_team, active=True).order_by('number')
@@ -198,8 +198,8 @@ def player_edit(request, user_id):
     pass
     
 @login_required
-def team_manage(request, team_id):
-    """captain profile - HTTP GET /team/@team_id/manage
+def team_players_edit(request, name):
+    """captain profile - HTTP GET /team/@team_name/manage
     Role = [captain]
     
     only show team that this captain is belongs to
@@ -208,10 +208,10 @@ def team_manage(request, team_id):
     user_id = request.session['user_id']
     captain = Player.objects.get(user_profile__user__id=user_id)
 
-    if captain.team.id != team_id:
+    if captain.team.name != name:
         raise PermissionDenied
     
-    current_team = Team.objects.get(id=team_id)
+    current_team = Team.objects.get(name=name)
     teamHelper = TeamHelper()
     
     player_form = PlayerForm()
@@ -220,11 +220,12 @@ def team_manage(request, team_id):
     
     context = {'page_title':'Team {0}'.format(current_team.name),
                'user_id':user_id,
-               'team_id':team_id,
+               'team_name': name,
+               'view_name' : 'team_players_edit',
                'player_form':player_form,
                    'players_dict':teamHelper.get_players_for_view(players)}
     
-    return render(request, 'team_manage.html', context)
+    return render(request, 'team_players_edit.html', context)
 
 
 

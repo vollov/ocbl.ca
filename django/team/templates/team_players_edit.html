@@ -1,20 +1,13 @@
-{% extends 'base.html' %} 
-{% block title %} - {{ page_title }} {% endblock %} 
+{% extends 'captain_template.html' %} 
 
-{% block content %}
-{% load i18n %}
+{% block captain_content %}
+
 <div class="panel">
+{% load i18n %}
 
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="/team/captain/{{user_id}}"
-					class="btn btn-success navbar-btn"> Back </a>
-				
-				<p class="navbar-text">{{user_profile.user.last_name}} {{user_profile.user.first_name}} (Captain)</p>
-			</div>
-		</div>
-	</nav>
+<hr class="featurette-divider">
+
+<a href="/team/{{team_name}}/disabled_players">{% trans "disabled_players" %}</a>
 
 {% if players_dict %}
 <table class="table table-bordered table-hover table-striped table-condensed">
@@ -24,7 +17,7 @@
           <th>Name</th>
           <th>Age</th>
           <th>Number</th>
-          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -48,7 +41,7 @@
           </td>
           
           {% if player.active %}
-          <td>player</td>
+          <td><a href="/team/player/{{player.id}}/disable"> Disable </a></td>
           {% else %}
     	  <td><a href="/team/player/{{player.id}}/approve"> Approve </a></td>
 		  {% endif %}
