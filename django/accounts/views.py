@@ -30,7 +30,7 @@ def register(request):
             
             logger.info('user {0} registered successfully'.format(user.username))
             
-            request.session['user_id'] = user.id
+            request.session['username'] = user.name
             return HttpResponseRedirect(reverse('profile'))
 
         else:
@@ -56,10 +56,10 @@ def user_login(request):
             if user.is_active:
                 login(request, user)
                 # save user in session
-                request.session['user_id'] = user.id
+                request.session['username'] = user.username
                 return HttpResponseRedirect(reverse('profile'))
             else:
-                return HttpResponse("Your account is disabled.")
+                return HttpResponse("Your account is disabled. Please contact your captain.")
         else:
             # Bad login details were provided. So we can't log the user in.
             logger.error("Invalid login details: {0}, {1}".format(username, password))

@@ -45,29 +45,29 @@ class ProfileService:
     Service class to manage player status
     Role = [all] 
     """
-    def __init__(self, user_id):
-        self.user_id = user_id
+    def __init__(self, username):
+        self.username = username
         
     def getProfile(self):
         """direct profile view for players and captains"""
         
         if self.is_approved_player():
-            logger.debug('approved player {0}'.format(self.user_id))
+            logger.debug('approved player {0}'.format(self.username))
             if self.is_captain():
-                return '/team/captain/{0}'.format(self.user_id)
+                return '/team/captain/{0}'.format(self.username)
                 #return captain_profile(request)
             else:
-                return '/team/player/{0}'.format(self.user_id)
+                return '/team/player/{0}'.format(self.username)
                 #return player_profile(request)
         else:
-            logger.debug('ProfileService=> /team/player/{0}/enroll'.format(self.user_id))
-            return '/team/player/{0}/enroll'.format(self.user_id)
+            logger.debug('ProfileService=> /team/player/{0}/enroll'.format(self.username))
+            return '/team/player/{0}/enroll'.format(self.username)
             #return player_enroll(request)
         
     def is_captain(self):
         """ check if the user is a captain"""
         if self.is_approved_player():
-            player = Player.objects.get(user_profile__user__id = self.user_id)
+            player = Player.objects.get(user_profile__user__username = self.username)
             if player.is_captain():
                 return True
             else:
@@ -77,7 +77,7 @@ class ProfileService:
         
     def is_approved_player(self):
         """ check if the player is approved by captain"""
-        if Player.objects.filter(user_profile__user__id = self.user_id, active=True).exists():
+        if Player.objects.filter(user_profile__user__username = self.username, active=True).exists():
             return True
         else:
             return False

@@ -1,0 +1,11 @@
+[
+{
+    "model": "content.systemsetting",
+    "pk": 1,
+    "fields": {
+        "name": "enable_registration",
+        "value": "True",
+        "data_type": "b"
+    }
+}
+]

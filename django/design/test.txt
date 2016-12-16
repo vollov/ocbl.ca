@@ -1,5 +1,7 @@
 python manage.py dumpdata auth.User --indent 4 > user.json
 
+python manage.py dumpdata content.SystemSetting --indent 4 > setting.json
+
 python manage.py loaddata user.json
 
 http://djangobook.com/using-translations-outside-views-templates/

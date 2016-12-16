@@ -2,10 +2,10 @@
 {% load i18n %}
 
 {% block content %}
-<h2>{% trans "registration"%}</h2>
-		<form id="user_form" method="post" action="/accounts/register/"
-                enctype="multipart/form-data">
 
+		<form id="user_form" class="form-register" method="post" action="/accounts/register/"
+                enctype="multipart/form-data">
+			<h2>{% trans "registration"%}</h2>
             {% csrf_token %}
 
             <!-- Display each form. The as_p method wraps each element in a paragraph

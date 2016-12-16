@@ -4,22 +4,23 @@
 
 {% load staticfiles %}
 {% block content %}
-
+<div>
 	<form class="form-signin" method="post" action="/accounts/login/">
-    	<h2 class="form-signin-heading">Please sign in</h2>
-            {% csrf_token %}
-            <label for="inputusername" class="sr-only">User Name</label>
-            <input type="username" name="username" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
-            
-            <br />
-            
-            <label for="inputPassword" class="sr-only">Password</label>
-        	<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        
-            <br />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-			<br />
-			<a class="pull-right" href="/accounts/register">Register an account</a><br />
-        </form>
+		<h2 class="form-signin-heading">Please sign in</h2>
+		{% csrf_token %}
+		<label for="inputusername" class="sr-only">User Name</label>
+		<input type="username" name="username" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
 		
+		<br />
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	
+		<br />
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		
+		<br />
+		<a class="pull-right" href="/accounts/register">Register an account</a><br />
+	</form>
+</div>
+	
 {% endblock %}

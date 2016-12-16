@@ -29,25 +29,60 @@ end_time
 """
 
 urlpatterns = [
-    url(r'^$', views.teams, name='teams'),
-    url(r'^enroll/$', views.post_enroll, name='post_enroll'),
     
+    # ================================================
+    # public views for a team
+    # ================================================
+    url(r'^$', views.teams, name='teams'),
     url(r'^(?P<name>[^/]+)$', views.team_detail, name='team_detail'),
     
-    # team_player_edit
-    url(r'^(?P<name>[^/]+)/players$', views.team_players_edit, name='team_players_edit'),
+    # ================================================
+    # profile self management
+    #    player_profile     - player/(?P<username>
+    #    captain_profile    - captain/(?P<username>
+    #    player_edit
+    # ================================================
     
+    # show player profile in edit form
+    url(r'^player/(?P<username>[^/]+)/$', views.player_profile, name='player_profile'),
     
-    url(r'^player/(?P<user_id>[^/]+)/$', views.player_profile, name='player_profile'),
-    url(r'^player/(?P<user_id>[^/]+)/edit$', views.player_edit, name='player_edit'),
-    url(r'^player/(?P<user_id>[^/]+)/enroll$', views.player_enroll, name='player_enroll'),
-    url(r'^(?P<team_id>[^/]+)/player/(?P<player_id>[^/]+)/number$', views.player_number, name='player_number'),
+    # show captain profile in edit form
+    url(r'^captain/(?P<username>[^/]+)/$', views.captain_profile, name='captain_profile'),
     
-    # approve or disable a player
-    url(r'^player/(?P<player_id>[^/]+)/approve$', views.player_approve, name='player_approve'),
-    url(r'^player/(?P<player_id>[^/]+)/approve$', views.player_approve, name='player_approve'),
+    # show 
+    url(r'^player/(?P<username>[^/]+)/edit$', views.player_edit, name='player_edit'),
+    url(r'^player/(?P<username>[^/]+)/enroll$', views.player_enroll, name='player_enroll'),
+    url(r'^(?P<team_id>[^/]+)/player/(?P<username>[^/]+)/number$', views.player_number, name='player_number'),
+    url(r'^enroll/$', views.post_enroll, name='post_enroll'),
     
-    url(r'^captain/(?P<user_id>[^/]+)/$', views.captain_profile, name='captain_profile'),
+    # ================================================
+    # player status update
+    #    (F)free    - player can join other teams
+    #    (P)pending - player left the league, or new apply to join
+    #    (A)active  - player is active
+    # ================================================
+    
+#     # approve a player, player became active, link to a team
+#     url(r'^player/(?P<player_id>[^/]+)/join$', views.player_join, name='player_join'),
+#     
+#     # make a player free
+#     url(r'^player/(?P<player_id>[^/]+)/free$', views.player_free, name='player_free'),
+#     
+#     # make a player to pending in a team
+#     url(r'^player/(?P<player_id>[^/]+)/deactive$', views.player_deactive, name='player_deactive'),
+#     
+#     
+    # ================================================
+    # players lists - current, pending, search
+    # ================================================
+    
+    # current-players for editing
+    url(r'^players/(?P<name>[^/]+)/current$', views.team_current_players, name='team_current_players'),
+     
+    # pending-players, players requested to join
+    #url(r'^players/(?P<name>[^/]+)/pending$', views.team_pending_players, name='team_pending_players'),
+    
+
     
     
 #    url(r'^profile/$', views.profile, name='profile'),

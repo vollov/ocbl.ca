@@ -13,7 +13,8 @@ class SettingService:
             
         return self.setting_dict[key]
     
-    def get_value(self, data_type, value):
+    @classmethod
+    def getValue(self, data_type, value):
         """convert boolean and string"""
         if data_type == 'b':
             if value.lower()=='true':
@@ -24,7 +25,8 @@ class SettingService:
             return value
         else:
             return int(value)
-        
+    
+    @classmethod
     def load_setting(self):
         settings = SystemSetting.objects.all()
         for item in settings:

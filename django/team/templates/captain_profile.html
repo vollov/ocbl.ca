@@ -1,7 +1,6 @@
-{% extends 'base.html' %} 
-{% block title %} - {{ page_title }} {% endblock %} 
+{% extends 'captain_template.html' %} 
 
-{% block content %}
+{% block captain_content %}
 
 {% load i18n %}
 
@@ -20,17 +19,7 @@
 				<p class="navbar-text">{{user_profile.user.last_name}} {{user_profile.user.first_name}} (Captain)</p>
 			</div>
 
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="#">{% trans "manage_profile" %} </a></li>
-					<li><a href="/team/{{captain.team.name}}/players">{% trans "manage_players" %} </a></li>
-					<li><a href="#">{% trans "team_bookkeeping" %} </a></li>
-					<li><a href="#">{% trans "team_announce" %} </a></li>
-					<li><a href="#">{% trans "team_fees" %} </a></li>
-					<li><a href="#">{% trans "team_schedule" %} </a></li>
-				</ul>
-			</div>
-		</div></nav>
+	</nav>
 
 		<ul class="list-group">
 			<li class="list-group-item">team : {{captain.team.name}}</li>

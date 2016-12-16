@@ -8,13 +8,26 @@ footer {
 	font-size: 12px;
 }
 
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-register {
+  max-width: 440px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
 #map-canvas {
 	height: 400px;
 	margin: 0;
 	padding: 0;
 }
 
-.navbar .navbar-nav > li a:hover, a.active {
+.main-navbar .main-navbar-nav > li a:hover, a.active {
 	border-bottom: 2px solid #ba5454;
 	/* background:#FFFFFF; */
 	color: #428bca;

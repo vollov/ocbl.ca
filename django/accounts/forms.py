@@ -15,7 +15,6 @@ class UserForm(forms.ModelForm):
         self.fields['username'].label = _('User Name')
         self.fields['email'].label = _('email')
 
-        
     password = forms.CharField(required=True, widget=forms.PasswordInput(
                     attrs={'class':'form-control',
                            'placeholder' :_('Password'),

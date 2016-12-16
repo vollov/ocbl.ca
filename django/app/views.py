@@ -76,8 +76,8 @@ def profile(request):
     show user profile [GET /profile]
     """
     logger.debug('calling team.views.profile()')
-    user_id = request.session['user_id']
-    service = ProfileService(user_id)
+    username = request.session['username']
+    service = ProfileService(username)
     return HttpResponseRedirect(service.getProfile())
 
 def permission_denied_view(request):
